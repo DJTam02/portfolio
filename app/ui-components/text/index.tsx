@@ -8,31 +8,52 @@ type ListProps = React.HTMLAttributes<HTMLUListElement> & {
   colour?: Colour;
 };
 
+type LinkProps = React.AnchorHTMLAttributes<HTMLAnchorElement> & {
+  variant: "link" | "smallLink";
+  colour?: Colour;
+};
+
 type TextProps =
   | (React.HTMLAttributes<HTMLParagraphElement> & {
-      variant?: Exclude<TextVariant, "list">;
+      variant?: Exclude<TextVariant, "list" | "link" | "smallLink">;
       colour?: Colour;
     })
-  | (React.HTMLAttributes<HTMLUListElement> & {
-      variant: "list";
-      colour?: Colour;
-    });
+  | ListProps
+  | LinkProps;
 
 const isListVariant = (props: TextProps): props is ListProps =>
   props.variant === "list";
 
+const isLinkVariant = (props: TextProps): props is LinkProps =>
+  props.variant === "link" || props.variant === "smallLink";
+
 export const Text = (props: TextProps) => {
-  return isListVariant(props) ? (
-    <ul
-      className={`${variantStyles[props.variant]} text-${colours[props.colour ?? "foreground"]} ${props.className || ""}`}
-      {...props}
-    >
-      <li>{props.children}</li>
-    </ul>
-  ) : (
+  if (isListVariant(props)) {
+    return (
+      <ul
+        {...props}
+        className={`${variantStyles[props.variant]} text-${colours[props.colour ?? "foreground"]} ${props.className || ""}`}
+      >
+        <li>{props.children}</li>
+      </ul>
+    );
+  }
+
+  if (isLinkVariant(props)) {
+    return (
+      <a
+        {...props}
+        className={`${variantStyles[props.variant]} text-${colours[props.colour ?? "foreground"]} ${props.className || ""}`}
+      >
+        {props.children}
+      </a>
+    );
+  }
+
+  return (
     <p
-      className={`${variantStyles[props.variant ?? "bodyRegular"]} text-${colours[props.colour ?? "foreground"]} ${props.className || ""}`}
       {...props}
+      className={`${variantStyles[props.variant ?? "bodyRegular"]} text-${colours[props.colour ?? "foreground"]} ${props.className || ""}`}
     >
       {props.children}
     </p>
