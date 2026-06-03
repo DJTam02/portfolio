@@ -1,0 +1,16 @@
+app/ui-components/liquidGlass/index.tsx
+  h_44ec2da86f6695 21-22
+app/ui-components/button/index.tsx
+  h_44ec2da86f6695 24
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.2",
+  "base_commit_sha": "19d507e432ffc208cf41d7baa385d3b73eaad338",
+  "prompts": {},
+  "humans": {
+    "h_44ec2da86f6695": {
+      "author": "DJTam02 <jacobtam2002@gmail.com>"
+    }
+  }
+}
