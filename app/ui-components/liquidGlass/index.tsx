@@ -18,8 +18,8 @@ export const LiquidGlass = ({
   ...rest
 }: LiquidGlassProps) => (
   <LiquidGlassOriginal
-    displacementScale={100}
-    blurAmount={0.3}
+    displacementScale={0}
+    blurAmount={0.8}
     saturation={100}
     aberrationIntensity={0}
     elasticity={0.35}
