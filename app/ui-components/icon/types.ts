@@ -11,4 +11,4 @@ export type Icons =
   | "close"
   | "menu";
 
-export type IconSize = "s" | "m" | "l";
+export type IconSize = "s" | "m" | "l" | "xl";

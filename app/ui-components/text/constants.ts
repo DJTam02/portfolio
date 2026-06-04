@@ -10,7 +10,7 @@ export const variantStyles: Record<TextVariant, string> = {
   h4Serif: "text-2xl italic font-instrument",
   link: "text-2xl font-alegreya",
   smallLink: "text-sm font-alegreya",
-  button: "text-2xl font-alegreya",
+  button: "text-2xl font-alegreya first-letter:uppercase",
   bodyLarge: "text-2xl font-light font-alegreya",
   bodyRegular: "text-sm font-alegreya",
   list: "text-2xl font-light font-alegreya list-disc pl-5",

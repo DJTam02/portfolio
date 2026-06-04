@@ -1,5 +1,5 @@
 import { Text, Flex } from "./ui-components";
-
+import { LINKS } from "./constants";
 export default function Home() {
   return (
     <Flex
@@ -31,7 +31,7 @@ export default function Home() {
             <Text
               variant="smallLink"
               className="inline underline tablet:text-2xl!"
-              href="https://drive.google.com/file/d/1YSPo3_au_6uU3dkwz2kKOI8WLDBcJtoY/view"
+              href={LINKS.resume}
               rel="noopener noreferrer"
             >
               resume
@@ -40,7 +40,7 @@ export default function Home() {
             <Text
               variant="smallLink"
               className="inline underline tablet:text-2xl!"
-              href="https://www.linkedin.com/in/rlai/"
+              href={LINKS.linkedIn}
               rel="noopener noreferrer"
             >
               LinkedIn

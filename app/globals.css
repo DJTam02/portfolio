@@ -2,14 +2,19 @@
 
 :root {
   --background: #181818;
-  --foreground: #FAFAFA;
-  --accent: #EFC68D;
+  --foreground: #fafafa;
+  --accent: #efc68d;
+
+  --liquid-glass: rgba(255, 255, 255, 0.08);
+  --liquid-glass-light: rgba(255, 255, 255, 0.04);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-accent: var(--accent);
+  --color-liquid-glass: var(--liquid-glass);
+  --color-liquid-glass-light: var(--liquid-glass-light);
   --font-alegreya: var(--font-alegreya-sans);
   --font-instrument: var(--font-instrument-serif);
 
@@ -22,8 +27,8 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #181818;
-    --foreground: #FAFAFA;
-    --accent: #EFC68D;
+    --foreground: #fafafa;
+    --accent: #efc68d;
   }
 }
 

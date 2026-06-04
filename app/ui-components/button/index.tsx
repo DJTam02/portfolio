@@ -2,11 +2,13 @@
 
 import React from "react";
 import { Icon } from "../icon";
+import { Text } from "../text";
 import { LiquidGlass } from "../liquidGlass";
 
 interface ButtonProps extends React.ComponentProps<typeof LiquidGlass> {
   size?: "default" | "lg";
   hasIcon?: boolean;
+  isBorderless?: boolean;
 }
 
 export const Button = ({
@@ -14,18 +16,25 @@ export const Button = ({
   hasIcon = false,
   className = "",
   children,
-  top,
-  left,
+  isBorderless = false,
   ...rest
 }: ButtonProps) => {
-  return (
-    <LiquidGlass top={top} left={left} {...rest}>
-      <div
-        className={`px-5 py-3 justify-center items-center ${size === "lg" ? "h-15" : ""} flex flex-row items-center gap-4 ${className} bg-[rgba(255,255,255,0.08)]`}
-      >
-        {children}
-        {hasIcon && <Icon name="arrowRight" size="s" />}
-      </div>
-    </LiquidGlass>
+  const content = (
+    <div
+      className={`px-5 py-3 justify-between items-center ${size === "lg" ? "h-15" : ""} flex flex-row items-center gap-4 bg-liquid-glass ${className}`}
+    >
+      {typeof children === "string" ? (
+        <Text variant="button">{children}</Text>
+      ) : (
+        children
+      )}
+      {hasIcon && <Icon name="arrowRight" size="s" />}
+    </div>
+  );
+
+  return isBorderless ? (
+    content
+  ) : (
+    <LiquidGlass {...rest}>{content}</LiquidGlass>
   );
 };
