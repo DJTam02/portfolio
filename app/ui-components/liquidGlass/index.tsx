@@ -2,6 +2,7 @@
 
 import React, { useState, useRef, useLayoutEffect } from "react";
 import LiquidGlassOriginal from "./liquidGlassOriginal";
+import { Flex } from "../flex";
 
 interface LiquidGlassProps extends React.ComponentProps<
   typeof LiquidGlassOriginal
@@ -16,7 +17,9 @@ export const LiquidGlass = ({
   ...rest
 }: LiquidGlassProps) => {
   const ref = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
   const [size, setSize] = useState({});
+  const [childWidth, setChildWidth] = useState<number | undefined>(undefined);
 
   useLayoutEffect(() => {
     if (!ref.current) return;
@@ -26,7 +29,6 @@ export const LiquidGlass = ({
       for (const entry of entries) {
         if (entry.contentRect) {
           const { width, height } = entry.target.getBoundingClientRect();
-          console.log(width, height);
           setSize({
             width,
             height,
@@ -41,6 +43,25 @@ export const LiquidGlass = ({
     return () => resizeObserver.disconnect();
   }, []);
 
+  useLayoutEffect(() => {
+    if (!containerRef.current || !style.width) return;
+
+    // Use ResizeObserver to watch for dimension changes
+    const resizeObserver = new ResizeObserver(async (entries) => {
+      for (const entry of entries) {
+        if (entry.contentRect) {
+          const { width } = entry.target.getBoundingClientRect();
+          setChildWidth(width);
+        }
+      }
+    });
+
+    resizeObserver.observe(containerRef.current);
+
+    // Clean up the observer on unmount
+    return () => resizeObserver.disconnect();
+  }, [style.width]);
+
   return (
     <LiquidGlassOriginal
       displacementScale={0}
@@ -51,9 +72,16 @@ export const LiquidGlass = ({
       borderRadius={10000}
       style={{ cursor, ...size, ...style }}
       padding="0px"
+      ref={containerRef}
       {...rest}
     >
-      <div ref={ref}>{children}</div>
+      <Flex
+        direction="col"
+        ref={ref}
+        style={childWidth ? { width: childWidth } : {}}
+      >
+        {children}
+      </Flex>
     </LiquidGlassOriginal>
   );
 };

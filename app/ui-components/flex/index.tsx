@@ -4,6 +4,7 @@ export interface FlexProps extends React.HTMLAttributes<HTMLDivElement> {
   direction?: "row" | "col" | "row-reverse" | "col-reverse";
   justifyContent?: "start" | "center" | "end" | "between" | "around";
   alignItems?: "start" | "center" | "end" | "stretch";
+  ref?: React.RefObject<HTMLDivElement | null>;
 }
 
 export const Flex = ({

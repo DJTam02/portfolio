@@ -387,6 +387,7 @@ export type LiquidGlassProps = {
   padding?: string;
   saturation?: number;
   style?: CSSProperties;
+  ref?: React.RefObject<HTMLDivElement | null>;
 };
 
 export default function LiquidGlass({
@@ -404,6 +405,7 @@ export default function LiquidGlass({
   padding = "24px 32px",
   saturation = 140,
   style,
+  ref,
 }: LiquidGlassProps) {
   const glassRef = useRef<HTMLDivElement>(null);
   const [isHovered, setIsHovered] = useState(false);
@@ -482,6 +484,7 @@ export default function LiquidGlass({
 
   return (
     <div
+      ref={ref}
       style={isStickyOrFixed ? undefined : { position: "relative", ...style }}
     >
       {/* Over light effect */}

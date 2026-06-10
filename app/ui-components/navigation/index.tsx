@@ -1,12 +1,12 @@
 "use client";
 
-import React, { useMemo, useState } from "react";
+import React, { useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
 
 import { Flex } from "../flex";
 import { Text } from "../text";
 import { Icon } from "../icon";
-import { LINKS, ROUTES } from "../../constants";
+import { LINKS, ROUTES } from "@/app/constants";
 import { LiquidGlass } from "../liquidGlass";
 import { Button } from "../button";
 
@@ -22,29 +22,6 @@ export const Navigation = () => {
     window.open(url, "_blank");
   };
 
-  const navButtons = useMemo(
-    () =>
-      NAV_ROUTES.map((route) => {
-        const isCurrentPage = pathname === ROUTES[route];
-        return (
-          <Button
-            className={
-              isCurrentPage
-                ? "bg-liquid-glass-light flex-1"
-                : "bg-transparent flex-1"
-            }
-            isBorderless={!isCurrentPage}
-            onClick={() => router.push(ROUTES[route])}
-            key={route}
-            style={{ width: "100%" }}
-          >
-            {route}
-          </Button>
-        );
-      }),
-    [pathname, router],
-  );
-
   return (
     <Flex
       justifyContent="between"
@@ -59,7 +36,25 @@ export const Navigation = () => {
       {/* Center elements */}
       <Flex className="tablet:flex hidden">
         <LiquidGlass>
-          <Flex className="p-2 bg-liquid-glass">{navButtons}</Flex>
+          <Flex className="p-2 bg-liquid-glass">
+            {NAV_ROUTES.map((route) => {
+              const isCurrentPage = pathname === ROUTES[route];
+              return (
+                <Button
+                  className={
+                    isCurrentPage
+                      ? "bg-liquid-glass-light flex-1"
+                      : "bg-transparent flex-1"
+                  }
+                  isBorderless={!isCurrentPage}
+                  onClick={() => router.push(ROUTES[route])}
+                  key={route}
+                >
+                  {route}
+                </Button>
+              );
+            })}
+          </Flex>
         </LiquidGlass>
       </Flex>
 
@@ -69,17 +64,17 @@ export const Navigation = () => {
         <Flex className="py-2 px-3 gap-8 ml-auto">
           <Text
             variant="link"
-            href={LINKS.linkedIn}
+            href={LINKS.contact.linkedIn}
             target="_blank"
-            className="gap-2.5"
+            className="gap-2.5 flex flex-row items-center"
           >
             LinkedIn <Icon name="arrowUpRight" />
           </Text>
           <Text
             variant="link"
-            href={LINKS.resume}
+            href={LINKS.contact.resume}
             target="_blank"
-            className="gap-2.5"
+            className="gap-2.5 flex flex-row items-center"
           >
             Resume <Icon name="arrowUpRight" />
           </Text>
@@ -104,11 +99,29 @@ export const Navigation = () => {
             >
               <Flex direction="col" className="p-2 bg-liquid-glass w-45 gap-2">
                 <Flex direction="col" className="gap-2 tablet:hidden">
-                  {navButtons}
+                  {NAV_ROUTES.map((route) => {
+                    const isCurrentPage = pathname === ROUTES[route];
+                    return (
+                      <Button
+                        className={
+                          isCurrentPage
+                            ? "bg-liquid-glass-light flex-1"
+                            : "bg-transparent flex-1"
+                        }
+                        isBorderless={!isCurrentPage}
+                        onClick={() => router.push(ROUTES[route])}
+                        key={route}
+                        style={{ width: "100%" }}
+                        borderRadius={20}
+                      >
+                        {route}
+                      </Button>
+                    );
+                  })}
                 </Flex>
                 <Button
                   isBorderless
-                  onClick={() => openLink(LINKS.linkedIn)}
+                  onClick={() => openLink(LINKS.contact.linkedIn)}
                   className="bg-transparent"
                 >
                   <Text variant="bodyLarge">LinkedIn</Text>
@@ -116,7 +129,7 @@ export const Navigation = () => {
                 </Button>
                 <Button
                   isBorderless
-                  onClick={() => openLink(LINKS.resume)}
+                  onClick={() => openLink(LINKS.contact.resume)}
                   className="bg-transparent"
                 >
                   <Text variant="bodyLarge">Resume</Text>

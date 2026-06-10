@@ -17,11 +17,13 @@ export const Button = ({
   className = "",
   children,
   isBorderless = false,
+  onClick,
   ...rest
 }: ButtonProps) => {
   const content = (
     <div
-      className={`px-5 py-3 justify-between items-center ${size === "lg" ? "h-15" : ""} flex flex-row items-center gap-4 bg-liquid-glass ${className}`}
+      onClick={onClick}
+      className={`px-5 py-3 justify-between items-center ${size === "lg" ? "h-15 " : ""}flex flex-row items-center gap-4 bg-liquid-glass ${className}`}
     >
       {typeof children === "string" ? (
         <Text variant="button">{children}</Text>
@@ -35,6 +37,8 @@ export const Button = ({
   return isBorderless ? (
     content
   ) : (
-    <LiquidGlass {...rest}>{content}</LiquidGlass>
+    <LiquidGlass onClick={onClick} {...rest}>
+      {content}
+    </LiquidGlass>
   );
 };
