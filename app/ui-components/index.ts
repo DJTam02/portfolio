@@ -1,4 +1,10 @@
+export { Accordion } from "./accordion";
 export { Text } from "./text";
 export { Icon } from "./icon";
 export { Button } from "./button";
 export { Flex } from "./flex";
+export { Footer } from "./footer";
+export { Modal } from "./modal";
+export { Navigation } from "./navigation";
+export { colours } from "./styles";
+export type { Colour } from "./styles";
