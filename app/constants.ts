@@ -16,6 +16,6 @@ export const LINKS = {
 };
 
 export const ROUTES = {
-  portfolio: "/ui-components",
+  portfolio: "/",
   about: "/about",
 };
