@@ -31,7 +31,7 @@ export default function Home() {
             <Text
               variant="smallLink"
               className="inline underline tablet:text-2xl!"
-              href={LINKS.resume}
+              href={LINKS.contact.resume}
               rel="noopener noreferrer"
             >
               resume
@@ -40,7 +40,7 @@ export default function Home() {
             <Text
               variant="smallLink"
               className="inline underline tablet:text-2xl!"
-              href={LINKS.linkedIn}
+              href={LINKS.contact.linkedIn}
               rel="noopener noreferrer"
             >
               LinkedIn
