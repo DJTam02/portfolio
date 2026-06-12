@@ -15,7 +15,13 @@ export const LINKS = {
   },
 };
 
-export const ROUTES = {
-  portfolio: "/",
-  about: "/about",
-};
+export enum ROUTES {
+  portfolio = "/",
+  about = "/about",
+}
+
+export enum BREAKPOINTS {
+  tablet = 744,
+  laptop = 1280,
+  desktop = 1512,
+}

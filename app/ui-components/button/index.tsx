@@ -30,7 +30,7 @@ export const Button = ({
       ) : (
         children
       )}
-      {hasIcon && <Icon name="arrowRight" size="s" />}
+      {hasIcon && <Icon name="arrowRight" size={3.5} />}
     </div>
   );
 

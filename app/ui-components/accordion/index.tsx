@@ -22,7 +22,7 @@ export const Accordion = ({ title, children, ...rest }: AccordionProps) => {
           className="cursor-pointer"
         >
           <Text variant="h2Serif">{title}</Text>
-          <Icon name={isOpen ? "chevronUp" : "chevronDown"} size="l" />
+          <Icon name={isOpen ? "chevronUp" : "chevronDown"} size={10} />
         </Flex>
         {isOpen && children}
       </Flex>

@@ -8,3 +8,4 @@ export { Modal } from "./modal";
 export { Navigation } from "./navigation";
 export { colours } from "./styles";
 export type { Colour } from "./styles";
+export { LiquidGlass } from "./liquidGlass";

@@ -88,7 +88,7 @@ export const Navigation = () => {
             className="py-2 px-3 bg-liquid-glass"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
-            <Icon name={isMenuOpen ? "close" : "menu"} size="xl" />
+            <Icon name={isMenuOpen ? "close" : "menu"} size={13} />
           </Flex>
         </LiquidGlass>
         {isMenuOpen && (

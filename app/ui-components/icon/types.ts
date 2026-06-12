@@ -9,6 +9,5 @@ export type Icons =
   | "chevronDown"
   | "chevronUp"
   | "close"
-  | "menu";
-
-export type IconSize = "s" | "m" | "l" | "xl";
+  | "menu"
+  | "arrowDown";

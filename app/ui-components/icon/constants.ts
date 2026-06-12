@@ -1,10 +1,11 @@
+import { ArrowDown } from "./icons/ArrowDown";
 import { ArrowRight } from "./icons/ArrowRight";
 import { ArrowUpRight } from "./icons/ArrowUpRight";
 import { ChevronDown } from "./icons/ChevronDown";
 import { ChevronUp } from "./icons/ChevronUp";
 import { Close } from "./icons/Close";
 import { Menu } from "./icons/Menu";
-import { Icons, IconSizeProps, IconSize } from "./types";
+import { Icons, IconSizeProps } from "./types";
 
 export const icons: Record<Icons, React.FC<IconSizeProps>> = {
   arrowRight: ArrowRight,
@@ -13,11 +14,5 @@ export const icons: Record<Icons, React.FC<IconSizeProps>> = {
   chevronUp: ChevronUp,
   close: Close,
   menu: Menu,
-};
-
-export const iconSizes: Record<IconSize, string> = {
-  s: "w-[14px] h-[14px]",
-  m: "w-4 h-4",
-  l: "w-10 h-10",
-  xl: "w-13 h-13",
+  arrowDown: ArrowDown,
 };

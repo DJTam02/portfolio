@@ -33,15 +33,9 @@ export const TVBackground = () => (
       </Text>
       <Text
         variant="h4Serif"
-        className="text-black leading-[84%] desktop:text-[160px] laptop:text-[148px] tablet:text-[80px] text-[68px]"
+        className="text-black leading-[84%] desktop:text-[160px] laptop:text-[148px] tablet:text-[80px] text-[68px] not-italic"
       >
-        <Text
-          variant="h4Serif"
-          className="leading-[84%] desktop:text-[160px] laptop:text-[148px] tablet:text-[80px] text-[68px] not-italic inline"
-        >
-          dreamer, innovator, storyteller,
-        </Text>{" "}
-        designer.
+        dreamer, innovator, storyteller, <i>designer.</i>
       </Text>
     </Flex>
   </Flex>
