@@ -1,0 +1,68 @@
+app/ui-components/shapedGlass/index.tsx
+  s_9977458f147d7b::t_289fab15b1260a 1-2,4,6-7,15,17,20,22-24,26,28,30,33-35,51-52,56,62-64,117,152-154
+  s_9977458f147d7b::t_2f24439ae87552 19,32,37,59,61
+  s_9977458f147d7b::t_32c6868829fe3f 155
+  s_9977458f147d7b::t_9a4e67c8dff326 3,5,8-12,14,16,18,21,25,27,29,31,36,38-50,53-55,57-58,60,65-116,118-151
+  s_9977458f147d7b::t_7d23608978d94c 13
+app/ui-components/shapedGlass/shapeMask.ts
+  s_9977458f147d7b::t_76eefaed0f078a 1-22
+app/ui-components/modal/index.tsx
+  h_44ec2da86f6695 6,10-34,38,47,49,58-59
+app/hooks/useGetBreakpointValue.ts
+  h_44ec2da86f6695 30
+app/ui-components/index.ts
+  s_9977458f147d7b::t_3569e32eb0efd6 12-20
+app/page.tsx
+  s_9977458f147d7b::t_b4e0840413dba1 101-104,106-107,109,111-114,116-117,119
+  s_9977458f147d7b::t_986b8c09595561 4,9-11,13-16
+  s_9977458f147d7b::t_125f2883f35d34 61,95,97,99,121-122
+  h_44ec2da86f6695 3,12,25,28,30-53,55-59,62-72,96,98,100,105,108,110,115,118,120,160-164
+  s_9977458f147d7b::t_eef2b3ed70b294 5-8
+app/ui-components/shapedGlass/shapes.ts
+  h_44ec2da86f6695 9,14
+  s_9977458f147d7b::t_05a05d8a3778ec 1-4
+  s_9977458f147d7b::t_1bebf5f96bb447 5-8,10-13
+app/ui-components/liquidGlass/liquidGlassOriginal.tsx
+  s_9977458f147d7b::t_96755728cb4fa8 444
+  s_9977458f147d7b::t_8daf4fbacf5c90 443,445
+  s_9977458f147d7b::t_6880430e5a924a 466,468,482-483
+  s_9977458f147d7b::t_ef03b77c9d2359 330-333,335-336
+  s_9977458f147d7b::t_79fd2934f48b1e 52-60,64-67
+  s_9977458f147d7b::t_8df4099a128d18 46-47
+  s_9977458f147d7b::t_feb8e6b0b1b04a 710
+  s_9977458f147d7b::t_ccd9a8e694bca5 349,354-362,377,379-380,385,388,393-394,396-398,403-412
+  s_9977458f147d7b::t_07a52c98e26049 276-277
+  s_9977458f147d7b::t_b5f105ce4a0610 41-45,48-51,61-63,68-72
+  s_9977458f147d7b::t_37b4bb567a783c 301-302,320
+  s_9977458f147d7b::t_cd1edddfdb36aa 725
+  s_9977458f147d7b::t_414f1942e34a5c 371-376
+  s_9977458f147d7b::t_f66a5fef62da40 621-622
+  s_9977458f147d7b::t_6fe722e21d21da 742
+  s_9977458f147d7b::t_0c3db61ccd7e07 467
+  s_9977458f147d7b::t_3afe78a0b7e88b 480,487-490
+  s_9977458f147d7b::t_9bea5518e7f441 570,577,589,602-603
+  s_9977458f147d7b::t_ca1c16c3995c7c 567-569,578,581,590,593,619-620,623-629,635,653,656,665,686,689,697
+  s_9977458f147d7b::t_92505e571c3c66 641,674
+  s_9977458f147d7b::t_14209b4f531678 319,337-340
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.9",
+  "base_commit_sha": "77c0c9bf1098480e78eaf2b00595c201b2813e9a",
+  "prompts": {},
+  "humans": {
+    "h_44ec2da86f6695": {
+      "author": "DJTam02 <jacobtam2002@gmail.com>"
+    }
+  },
+  "sessions": {
+    "s_9977458f147d7b": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "7454b22a-3d43-4520-8c95-f621767d901a",
+        "model": "default"
+      },
+      "human_author": "DJTam02 <jacobtam2002@gmail.com>"
+    }
+  }
+}
