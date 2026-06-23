@@ -38,6 +38,38 @@ const generateShaderDisplacementMap = (
   return dataUrl;
 };
 
+function getShapeStyle(
+  borderRadius: number,
+  clipPathId?: string,
+): CSSProperties {
+  if (clipPathId) {
+    const clip = `url(#${clipPathId})`;
+    return { clipPath: clip, WebkitClipPath: clip };
+  }
+  return { borderRadius };
+}
+
+const ShapeClipPathDef = ({
+  id,
+  path,
+  scale = 1,
+}: {
+  id: string;
+  path: string;
+  scale?: number;
+}) => (
+  <svg aria-hidden="true" height="0" style={{ position: "absolute" }} width="0">
+    <defs>
+      <clipPath clipPathUnits="userSpaceOnUse" id={id}>
+        <path
+          d={path}
+          transform={scale === 1 ? undefined : `scale(${scale})`}
+        />
+      </clipPath>
+    </defs>
+  </svg>
+);
+
 const getMap = (
   mode: "standard" | "polar" | "prominent" | "shader",
   shaderMapUrl?: string,
@@ -241,6 +273,8 @@ type GlassContainerProps = PropsWithChildren<{
   blurAmount?: number;
   borderRadius?: number;
   className?: string;
+  clipPathId?: string;
+  clipPathSize?: { height: number; width: number };
   displacementScale?: number;
   glassSize: { height: number; width: number };
   mode?: "standard" | "polar" | "prominent" | "shader";
@@ -264,6 +298,8 @@ const GlassContainer = forwardRef<HTMLDivElement, GlassContainerProps>(
       borderRadius = 999,
       children,
       className = "",
+      clipPathId,
+      clipPathSize,
       displacementScale = 25,
       glassSize,
       mode = "standard",
@@ -280,6 +316,8 @@ const GlassContainer = forwardRef<HTMLDivElement, GlassContainerProps>(
     ref,
   ) => {
     const filterId = useId();
+    const isShaped = Boolean(clipPathId);
+    const shapeStyle = getShapeStyle(borderRadius, clipPathId);
     const shaderMapUrl = useMemo(() => {
       if (mode === "shader") {
         return generateShaderDisplacementMap(glassSize.width, glassSize.height);
@@ -289,11 +327,17 @@ const GlassContainer = forwardRef<HTMLDivElement, GlassContainerProps>(
 
     const isFirefox = navigator.userAgent.toLowerCase().includes("firefox");
 
+    const backdropBlur = `blur(${
+      (overLight ? 12 : 4) + blurAmount * 32
+    }px) saturate(${saturation}%)`;
+
     const backdropStyle = {
-      backdropFilter: `blur(${
-        (overLight ? 12 : 4) + blurAmount * 32
-      }px) saturate(${saturation}%)`,
-      filter: isFirefox ? null : `url(#${filterId})`,
+      WebkitBackdropFilter: backdropBlur,
+      backdropFilter: backdropBlur,
+      filter:
+        isFirefox || displacementScale === 0
+          ? null
+          : `url(#${filterId})`,
     };
 
     return (
@@ -302,18 +346,20 @@ const GlassContainer = forwardRef<HTMLDivElement, GlassContainerProps>(
         onClick={onClick}
         ref={ref}
         style={{
-          position: "absolute",
+          position: isShaped ? "relative" : "absolute",
           ...(onClick ? { cursor: "pointer" } : null),
           ...style,
         }}
       >
-        <GlassFilter
-          aberrationIntensity={aberrationIntensity}
-          displacementScale={displacementScale}
-          id={filterId}
-          mode={mode}
-          shaderMapUrl={shaderMapUrl}
-        />
+        {displacementScale !== 0 ? (
+          <GlassFilter
+            aberrationIntensity={aberrationIntensity}
+            displacementScale={displacementScale}
+            id={filterId}
+            mode={mode}
+            shaderMapUrl={shaderMapUrl}
+          />
+        ) : null}
 
         <div
           onMouseDown={onMouseDown}
@@ -322,30 +368,48 @@ const GlassContainer = forwardRef<HTMLDivElement, GlassContainerProps>(
           onMouseUp={onMouseUp}
           style={{
             alignItems: "center",
-            borderRadius,
-            boxShadow: overLight
-              ? "0px 16px 70px rgba(0, 0, 0, 0.75)"
-              : "0px 12px 40px rgba(0, 0, 0, 0.25)",
-            display: "inline-flex",
+            ...shapeStyle,
+            boxShadow: clipPathId
+              ? undefined
+              : overLight
+                ? "0px 16px 70px rgba(0, 0, 0, 0.75)"
+                : "0px 12px 40px rgba(0, 0, 0, 0.25)",
+            display: isShaped ? "flex" : "inline-flex",
             gap: "24px",
+            height: clipPathSize?.height ?? "100%",
+            justifyContent: "center",
             overflow: "hidden",
             padding,
             position: "relative",
             transition: "all 0.2s ease-in-out",
+            width: clipPathSize?.width ?? "100%",
           }}
         >
-          {/* backdrop layer that gets wiggly */}
+          {/* backdrop layer — extend beyond clip bounds so blur has content to sample */}
           <span
             style={
               {
                 ...backdropStyle,
-                borderRadius,
-                inset: "0",
-                overflow: "hidden",
+                height: isShaped ? "calc(100% + 40px)" : "100%",
+                left: isShaped ? "-20px" : undefined,
                 position: "absolute",
+                top: isShaped ? "-20px" : undefined,
+                width: isShaped ? "calc(100% + 40px)" : "100%",
+                ...(isShaped ? null : { inset: "0" }),
               } as CSSProperties
             }
           />
+
+          {isShaped ? (
+            <span
+              style={{
+                backgroundColor: "rgba(255, 255, 255, 0.08)",
+                inset: "0",
+                pointerEvents: "none",
+                position: "absolute",
+              }}
+            />
+          ) : null}
 
           {/* user content stays sharp */}
           <div
@@ -376,6 +440,9 @@ export type LiquidGlassProps = {
   borderRadius?: number;
   children: ReactNode;
   className?: string;
+  clipPath?: string;
+  clipPathScale?: number;
+  clipPathSize?: { height: number; width: number };
   displacementScale?: number;
   elasticity?: number;
   globalMousePos?: { x: number; y: number };
@@ -396,6 +463,9 @@ export default function LiquidGlass({
   borderRadius = 999,
   children,
   className = "",
+  clipPath,
+  clipPathScale = 1,
+  clipPathSize,
   displacementScale = 70,
   globalMousePos: externalGlobalMousePos,
   mode = "standard",
@@ -407,10 +477,17 @@ export default function LiquidGlass({
   style,
   ref,
 }: LiquidGlassProps) {
+  const clipPathId = `shape-clip-${useId().replace(/:/g, "")}`;
   const glassRef = useRef<HTMLDivElement>(null);
+  const isShaped = Boolean(clipPath);
+  const shapeStyle = getShapeStyle(borderRadius, isShaped ? clipPathId : undefined);
   const [isHovered, setIsHovered] = useState(false);
   const [isActive, setIsActive] = useState(false);
   const [glassSize, setGlassSize] = useState({ height: 0, width: 0 });
+  const effectiveGlassSize =
+    glassSize.width > 0 && glassSize.height > 0
+      ? glassSize
+      : (clipPathSize ?? glassSize);
   const [internalMouseOffset, setInternalMouseOffset] = useState({
     x: 0,
     y: 0,
@@ -487,17 +564,21 @@ export default function LiquidGlass({
       ref={ref}
       style={isStickyOrFixed ? undefined : { position: "relative", ...style }}
     >
+      {clipPath ? (
+        <ShapeClipPathDef id={clipPathId} path={clipPath} scale={clipPathScale} />
+      ) : null}
+
       {/* Over light effect */}
       <div
         style={{
           position: "absolute",
           ...transformStyle,
           backgroundColor: "#111",
-          borderRadius,
-          height: glassSize.height,
+          ...shapeStyle,
+          height: effectiveGlassSize.height,
           opacity: overLight ? 0.2 : 0,
           pointerEvents: "none",
-          width: glassSize.width,
+          width: effectiveGlassSize.width,
         }}
       />
       <div
@@ -505,11 +586,11 @@ export default function LiquidGlass({
           position: "absolute",
           ...transformStyle,
           backgroundColor: "#111",
-          borderRadius,
-          height: glassSize.height,
+          ...shapeStyle,
+          height: effectiveGlassSize.height,
           opacity: overLight ? 0.2 : 0,
           pointerEvents: "none",
-          width: glassSize.width,
+          width: effectiveGlassSize.width,
         }}
       />
 
@@ -518,6 +599,8 @@ export default function LiquidGlass({
         blurAmount={blurAmount}
         borderRadius={borderRadius}
         className={className}
+        clipPathId={isShaped ? clipPathId : undefined}
+        clipPathSize={clipPathSize}
         displacementScale={
           overLight ? displacementScale * 0.5 : displacementScale
         }
@@ -533,18 +616,29 @@ export default function LiquidGlass({
         padding={padding}
         ref={glassRef}
         saturation={saturation}
-        style={transformStyle}
+        style={{
+          ...transformStyle,
+          left: isShaped ? 0 : undefined,
+          top: isShaped ? 0 : undefined,
+          ...(clipPathSize
+            ? {
+                height: clipPathSize.height,
+                width: clipPathSize.width,
+              }
+            : null),
+        }}
       >
         {children}
       </GlassContainer>
 
       {/* Border layer 1 - extracted from glass container */}
-      {glassSize.height > 0 && glassSize.width > 0 && (
+      {effectiveGlassSize.height > 0 && effectiveGlassSize.width > 0 && (
         <>
           <span
             style={{
               position: "absolute",
               ...transformStyle,
+              ...(isShaped ? { left: 0, top: 0 } : null),
               background: `linear-gradient(
           ${135 + mouseOffset.x * 1.2}deg,
           rgba(255, 255, 255, 0.0) 0%,
@@ -556,10 +650,10 @@ export default function LiquidGlass({
           }) ${Math.min(90, 66 + mouseOffset.y * 0.4)}%,
           rgba(255, 255, 255, 0.0) 100%
         )`,
-              borderRadius,
+              ...shapeStyle,
               boxShadow:
                 "0 0 0 0.5px rgba(255, 255, 255, 0.5) inset, 0 1px 3px rgba(255, 255, 255, 0.25) inset, 0 1px 4px rgba(0, 0, 0, 0.35)",
-              height: glassSize.height,
+              height: effectiveGlassSize.height,
               maskComposite: "exclude",
               mixBlendMode: "screen",
               opacity: 0.2,
@@ -568,7 +662,7 @@ export default function LiquidGlass({
               WebkitMask:
                 "linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0)",
               WebkitMaskComposite: "xor",
-              width: glassSize.width,
+              width: effectiveGlassSize.width,
             }}
           />
 
@@ -577,6 +671,7 @@ export default function LiquidGlass({
             style={{
               position: "absolute",
               ...transformStyle,
+              ...(isShaped ? { left: 0, top: 0 } : null),
               background: `linear-gradient(
           ${135 + mouseOffset.x * 1.2}deg,
           rgba(255, 255, 255, 0.0) 0%,
@@ -588,10 +683,10 @@ export default function LiquidGlass({
           }) ${Math.min(90, 66 + mouseOffset.y * 0.4)}%,
           rgba(255, 255, 255, 0.0) 100%
         )`,
-              borderRadius,
+              ...shapeStyle,
               boxShadow:
                 "0 0 0 0.5px rgba(255, 255, 255, 0.5) inset, 0 1px 3px rgba(255, 255, 255, 0.25) inset, 0 1px 4px rgba(0, 0, 0, 0.35)",
-              height: glassSize.height,
+              height: effectiveGlassSize.height,
               maskComposite: "exclude",
               mixBlendMode: "overlay",
               padding: "1.5px",
@@ -599,7 +694,7 @@ export default function LiquidGlass({
               WebkitMask:
                 "linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0)",
               WebkitMaskComposite: "xor",
-              width: glassSize.width,
+              width: effectiveGlassSize.width,
             }}
           />
         </>
@@ -612,7 +707,7 @@ export default function LiquidGlass({
             style={{
               backgroundImage:
                 "radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 50%)",
-              borderRadius,
+              ...shapeStyle,
               height: glassSize.height,
               mixBlendMode: "overlay",
               opacity: isHovered || isActive ? 0.5 : 0,
@@ -627,7 +722,7 @@ export default function LiquidGlass({
             style={{
               backgroundImage:
                 "radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 80%)",
-              borderRadius,
+              ...shapeStyle,
               height: glassSize.height,
               mixBlendMode: "overlay",
               opacity: isActive ? 0.5 : 0,
@@ -644,7 +739,7 @@ export default function LiquidGlass({
               ...transformStyle,
               backgroundImage:
                 "radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%)",
-              borderRadius,
+              ...shapeStyle,
               height: glassSize.height,
               mixBlendMode: "overlay",
               opacity: isHovered ? 0.4 : isActive ? 0.8 : 0,

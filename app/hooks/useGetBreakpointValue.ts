@@ -27,5 +27,5 @@ export const useGetBreakpointValue = () => {
     [width],
   );
 
-  return getBreakpointValue;
+  return { getBreakpointValue, width };
 };
