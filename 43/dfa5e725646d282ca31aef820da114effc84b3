@@ -1,0 +1,62 @@
+app/constants.ts
+  h_44ec2da86f6695 21-24
+app/ui-components/text/index.tsx
+  h_44ec2da86f6695 31,42,52
+app/ui-components/index.ts
+  h_44ec2da86f6695 10
+app/ui-components/accordion/index.tsx
+  h_44ec2da86f6695 11,17,20,31-32,38-41,43
+app/ui-components/navigation/index.tsx
+  h_44ec2da86f6695 93,99-101,125-126,142,144-146
+  s_99e28cd7650068::t_537641a74de3af 102-104,106-124,127-128,130-141
+app/ui-components/chip/index.tsx
+  h_44ec2da86f6695 1-16
+app/ui-components/liquidGlass/liquidGlassOriginal.tsx
+  s_99e28cd7650068::t_97ad727b669593 351-356
+  s_99e28cd7650068::t_9c17fa5b2d1ca3 364,367,370-376,391-392,402
+  h_44ec2da86f6695 337,357,365-366,368-369,377-390,396-401,403-412
+app/components/portfolio/rollingText.tsx
+  h_44ec2da86f6695 1-24
+app/layout.tsx
+  h_44ec2da86f6695 4-5,22-27,41
+app/page.tsx
+  h_44ec2da86f6695 4,7,11,18,26-30,34,123,126,130-207,209
+  s_99e28cd7650068::t_ac59fab5e4249c 208
+  s_99e28cd7650068::t_3fff7f8ac44146 20
+app/components/index.ts
+  h_44ec2da86f6695 1,7
+app/components/tvBackground.tsx
+  h_44ec2da86f6695 30,36
+app/ui-components/button/index.tsx
+  h_44ec2da86f6695 26
+app/components/portfolio/images.tsx
+  h_44ec2da86f6695 1-143
+app/globals.css
+  h_44ec2da86f6695 20
+  s_99e28cd7650068::t_7441e277e7ef3e 26-33
+app/ui-components/footer/index.tsx
+  h_44ec2da86f6695 29
+app/components/portfolio/photoHover.tsx
+  h_44ec2da86f6695 1-59
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.11",
+  "base_commit_sha": "43dfa5e725646d282ca31aef820da114effc84b3",
+  "prompts": {},
+  "humans": {
+    "h_44ec2da86f6695": {
+      "author": "DJTam02 <jacobtam2002@gmail.com>"
+    }
+  },
+  "sessions": {
+    "s_99e28cd7650068": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "c79b7d3a-0b44-46c4-8dee-d2515474078c",
+        "model": "default"
+      },
+      "human_author": "DJTam02 <jacobtam2002@gmail.com>"
+    }
+  }
+}
