@@ -26,7 +26,7 @@ import {
 } from "@/app/components";
 import { useGetBreakpointValue } from "@/app/hooks";
 import { BREAKPOINTS, LINKS } from "@/app/constants";
-import { Images } from "./components/portfolio/images";
+import { Images } from "@/app/components/portfolio/images";
 import { useRouter } from "next/navigation";
 
 export default function Home() {
