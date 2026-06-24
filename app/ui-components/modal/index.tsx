@@ -3,11 +3,39 @@ import { Flex, FlexProps } from "../flex";
 import { Ellipse } from "./ellipse";
 import { LiquidGlass } from "../liquidGlass";
 
-interface ModalProps extends FlexProps {
+interface ModalWrapperProps extends FlexProps {
   onClose: () => void;
 }
 
-export const Modal = ({ children, onClose, ...rest }: ModalProps) => (
+interface ModalProps extends React.ComponentProps<typeof LiquidGlass> {
+  className?: string;
+  children: React.ReactNode;
+}
+
+export const Modal = ({ children, className, ...rest }: ModalProps) => (
+  <LiquidGlass
+    borderRadius={16}
+    elasticity={0}
+    cursor="default"
+    className={`overflow-hidden cursor-default opacity-100 ${className}`}
+    {...rest}
+  >
+    <Flex className="gap-4 px-6 pt-5 pb-4 bg-[linear-gradient(90deg,rgba(255,255,255,0.12)_0%,rgba(255,255,255,0.35)_50%,rgba(255,255,255,0.12)_100%)]">
+      <Ellipse fillColour="#E37564" strokeColour="#A36151" />
+      <Ellipse fillColour="#ECC062" strokeColour="#B3984F" />
+      <Ellipse fillColour="#74C161" strokeColour="#5D8952" />
+    </Flex>
+    <Flex direction="col" className="p-10 h-full bg-liquid-glass">
+      {children}
+    </Flex>
+  </LiquidGlass>
+);
+
+export const ModalWrapper = ({
+  children,
+  onClose,
+  ...rest
+}: ModalWrapperProps) => (
   <React.Fragment>
     <Flex
       justifyContent="center"
@@ -16,11 +44,9 @@ export const Modal = ({ children, onClose, ...rest }: ModalProps) => (
       onClick={onClose}
       {...rest}
     />
-    <LiquidGlass
-      borderRadius={16}
-      elasticity={0}
+    <Modal
       cursor="default"
-      className="w-150 overflow-hidden cursor-default opacity-100"
+      className="w-150"
       style={{
         position: "absolute",
         top: "50%",
@@ -29,14 +55,7 @@ export const Modal = ({ children, onClose, ...rest }: ModalProps) => (
         zIndex: 30,
       }}
     >
-      <Flex className="gap-4 px-6 pt-5 pb-4 bg-[linear-gradient(90deg,rgba(255,255,255,0.12)_0%,rgba(255,255,255,0.35)_50%,rgba(255,255,255,0.12)_100%)]">
-        <Ellipse fillColour="#E37564" strokeColour="#A36151" />
-        <Ellipse fillColour="#ECC062" strokeColour="#B3984F" />
-        <Ellipse fillColour="#74C161" strokeColour="#5D8952" />
-      </Flex>
-      <Flex direction="col" className="p-10 h-full bg-liquid-glass">
-        {children}
-      </Flex>
-    </LiquidGlass>
+      {children}
+    </Modal>
   </React.Fragment>
 );

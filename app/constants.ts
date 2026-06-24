@@ -15,7 +15,17 @@ export const LINKS = {
   },
 };
 
-export const ROUTES = {
-  portfolio: "/ui-components",
-  about: "/about",
-};
+export enum ROUTES {
+  portfolio = "/",
+  about = "/about",
+  revvityLabs = "/revvity-labs",
+  plooto = "/plooto",
+  scispot = "/scispot",
+  revvityAI = "/revvity-ai",
+}
+
+export enum BREAKPOINTS {
+  tablet = 744,
+  laptop = 1280,
+  desktop = 1512,
+}

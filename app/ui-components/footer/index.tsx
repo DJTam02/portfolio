@@ -26,7 +26,7 @@ export const Footer = ({ variant = "default" }: FooterProps) => (
     </div>
     <Flex
       direction="col"
-      className={`${variant === "default" ? "laptop:px-28" : "laptop:px-8"} laptop:gap-8 tablet:px-6 tablet:pt-10 tablet:gap-10 px-3 pt-5 pb-5 gap-6`}
+      className={`${variant === "default" ? "laptop:px-18" : "laptop:px-8"} laptop:gap-8 tablet:px-6 tablet:pt-10 tablet:gap-10 px-3 pt-5 pb-5 gap-6`}
     >
       <Flex
         direction="col"

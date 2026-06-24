@@ -8,10 +8,16 @@ import { BottomBorder } from "./bottomBorder";
 
 interface AccordionProps extends FlexProps {
   title: string;
+  startOpen?: boolean;
 }
 
-export const Accordion = ({ title, children, ...rest }: AccordionProps) => {
-  const [isOpen, setIsOpen] = useState(false);
+export const Accordion = ({
+  title,
+  children,
+  startOpen = false,
+  ...rest
+}: AccordionProps) => {
+  const [isOpen, setIsOpen] = useState(startOpen);
 
   return (
     <Flex className="gap-4" direction="col" {...rest}>
@@ -21,10 +27,20 @@ export const Accordion = ({ title, children, ...rest }: AccordionProps) => {
           onClick={() => setIsOpen(!isOpen)}
           className="cursor-pointer"
         >
-          <Text variant="h2Serif">{title}</Text>
-          <Icon name={isOpen ? "chevronUp" : "chevronDown"} size="l" />
+          <Text
+            variant="h4Serif"
+            className="tablet:text-[32px] laptop:text-[40px]"
+          >
+            {title}
+          </Text>
+          <Icon name={isOpen ? "chevronUp" : "chevronDown"} size={10} />
         </Flex>
-        {isOpen && children}
+        <Flex
+          direction="col"
+          className={`gap-3 duration-300 ${isOpen ? "h-auto" : "h-0 overflow-hidden"}`}
+        >
+          {children}
+        </Flex>
       </Flex>
       <BottomBorder />
     </Flex>

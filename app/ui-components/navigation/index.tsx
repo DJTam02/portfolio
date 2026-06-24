@@ -88,56 +88,62 @@ export const Navigation = () => {
             className="py-2 px-3 bg-liquid-glass"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
-            <Icon name={isMenuOpen ? "close" : "menu"} size="xl" />
+            <Icon
+              name={isMenuOpen ? "close" : "menu"}
+              className={`${isMenuOpen ? "px-3" : "px-2.5"} py-4`}
+              size={13}
+            />
           </Flex>
         </LiquidGlass>
         {isMenuOpen && (
-          <Flex className="relative">
-            <LiquidGlass
-              style={{ position: "absolute", top: 16, right: 0 }}
-              borderRadius={24}
-            >
-              <Flex direction="col" className="p-2 bg-liquid-glass w-45 gap-2">
-                <Flex direction="col" className="gap-2 tablet:hidden">
-                  {NAV_ROUTES.map((route) => {
-                    const isCurrentPage = pathname === ROUTES[route];
-                    return (
-                      <Button
-                        className={
-                          isCurrentPage
-                            ? "bg-liquid-glass-light flex-1"
-                            : "bg-transparent flex-1"
-                        }
-                        isBorderless={!isCurrentPage}
-                        onClick={() => router.push(ROUTES[route])}
-                        key={route}
-                        style={{ width: "100%" }}
-                        borderRadius={20}
-                      >
-                        {route}
-                      </Button>
-                    );
-                  })}
+          <div className="relative">
+            <div className="absolute top-4 right-0 z-10">
+              <LiquidGlass borderRadius={24} overLight>
+                <Flex
+                  direction="col"
+                  className="p-2 bg-liquid-glass w-45 gap-2"
+                >
+                  <Flex direction="col" className="gap-2 tablet:hidden">
+                    {NAV_ROUTES.map((route) => {
+                      const isCurrentPage = pathname === ROUTES[route];
+                      return (
+                        <Button
+                          className={
+                            isCurrentPage
+                              ? "bg-liquid-glass-light flex-1"
+                              : "bg-transparent flex-1"
+                          }
+                          isBorderless={!isCurrentPage}
+                          onClick={() => router.push(ROUTES[route])}
+                          key={route}
+                          style={{ width: "100%" }}
+                          borderRadius={20}
+                        >
+                          {route}
+                        </Button>
+                      );
+                    })}
+                  </Flex>
+                  <Button
+                    isBorderless
+                    onClick={() => openLink(LINKS.contact.linkedIn)}
+                    className="bg-transparent"
+                  >
+                    <Text variant="bodyLarge">LinkedIn</Text>
+                    <Icon name="arrowUpRight" />
+                  </Button>
+                  <Button
+                    isBorderless
+                    onClick={() => openLink(LINKS.contact.resume)}
+                    className="bg-transparent"
+                  >
+                    <Text variant="bodyLarge">Resume</Text>
+                    <Icon name="arrowUpRight" />
+                  </Button>
                 </Flex>
-                <Button
-                  isBorderless
-                  onClick={() => openLink(LINKS.contact.linkedIn)}
-                  className="bg-transparent"
-                >
-                  <Text variant="bodyLarge">LinkedIn</Text>
-                  <Icon name="arrowUpRight" />
-                </Button>
-                <Button
-                  isBorderless
-                  onClick={() => openLink(LINKS.contact.resume)}
-                  className="bg-transparent"
-                >
-                  <Text variant="bodyLarge">Resume</Text>
-                  <Icon name="arrowUpRight" />
-                </Button>
-              </Flex>
-            </LiquidGlass>
-          </Flex>
+              </LiquidGlass>
+            </div>
+          </div>
         )}
       </Flex>
     </Flex>

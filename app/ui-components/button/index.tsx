@@ -23,14 +23,14 @@ export const Button = ({
   const content = (
     <div
       onClick={onClick}
-      className={`px-5 py-3 justify-between items-center ${size === "lg" ? "h-15 " : ""}flex flex-row items-center gap-4 bg-liquid-glass ${className}`}
+      className={`px-5 py-3 justify-between items-center ${size === "lg" ? "h-15 " : ""}flex flex-row items-center gap-4 bg-liquid-glass whitespace-nowrap ${className}`}
     >
       {typeof children === "string" ? (
         <Text variant="button">{children}</Text>
       ) : (
         children
       )}
-      {hasIcon && <Icon name="arrowRight" size="s" />}
+      {hasIcon && <Icon name="arrowRight" size={3.5} />}
     </div>
   );
 

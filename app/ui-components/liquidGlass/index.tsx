@@ -29,6 +29,7 @@ export const LiquidGlass = ({
       for (const entry of entries) {
         if (entry.contentRect) {
           const { width, height } = entry.target.getBoundingClientRect();
+          console.log(width, height);
           setSize({
             width,
             height,
