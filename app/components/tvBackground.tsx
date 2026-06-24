@@ -27,13 +27,13 @@ export const TVBackground = () => (
     >
       <Text
         variant="h4Serif"
-        className="text-black tablet:text-[40px] laptop:text-[60px] laptop:leading-[84%] laptop:not-italic desktop:text-[80px]"
+        className="tablet:text-[40px] laptop:text-[60px] laptop:leading-[84%] laptop:not-italic desktop:text-[80px] !text-background"
       >
         Hey, there! I&apos;m Rebecca—
       </Text>
       <Text
         variant="h4Serif"
-        className="text-black leading-[84%] desktop:text-[160px] laptop:text-[148px] tablet:text-[80px] text-[68px] not-italic"
+        className="leading-[84%] desktop:text-[160px] laptop:text-[148px] tablet:text-[80px] text-[68px] not-italic !text-background"
       >
         dreamer, innovator, storyteller, <i>designer.</i>
       </Text>

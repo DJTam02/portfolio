@@ -1,22 +1,18 @@
 import React from "react";
 import { TextVariant } from "./types";
 import { variantStyles } from "./constants";
-import { Colour, colours } from "../styles";
 
 type ListProps = React.HTMLAttributes<HTMLUListElement> & {
   variant: "list";
-  colour?: Colour;
 };
 
 type LinkProps = React.AnchorHTMLAttributes<HTMLAnchorElement> & {
   variant: "link" | "smallLink";
-  colour?: Colour;
 };
 
 type TextProps =
   | (React.HTMLAttributes<HTMLParagraphElement> & {
       variant?: Exclude<TextVariant, "list" | "link" | "smallLink">;
-      colour?: Colour;
     })
   | ListProps
   | LinkProps;
@@ -32,7 +28,7 @@ export const Text = (props: TextProps) => {
     return (
       <ul
         {...props}
-        className={`${variantStyles[props.variant]} text-${colours[props.colour ?? "foreground"]} ${props.className || ""}`}
+        className={`${variantStyles[props.variant]} text-foreground ${props.className || ""}`}
       >
         <li>{props.children}</li>
       </ul>
@@ -43,7 +39,7 @@ export const Text = (props: TextProps) => {
     return (
       <a
         {...props}
-        className={`${variantStyles[props.variant]} text-${colours[props.colour ?? "foreground"]} ${props.className || ""}`}
+        className={`${variantStyles[props.variant]} text-foreground ${props.className || ""}`}
       >
         {props.children}
       </a>
@@ -53,7 +49,7 @@ export const Text = (props: TextProps) => {
   return (
     <p
       {...props}
-      className={`${variantStyles[props.variant ?? "bodyRegular"]} text-${colours[props.colour ?? "foreground"]} ${props.className || ""}`}
+      className={`${variantStyles[props.variant ?? "bodyRegular"]} text-foreground ${props.className || ""}`}
     >
       {props.children}
     </p>

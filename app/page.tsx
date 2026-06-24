@@ -1,75 +1,37 @@
 "use client";
 
-import Image from "next/image";
 import {
+  Accordion,
   BLOB_PATH,
   BLOB_SIZE,
+  Button,
   CROSS_PATH,
   CROSS_SIZE,
   Flex,
+  Footer,
   Icon,
   LiquidGlass,
   Modal,
   Navigation,
   ShapedLiquidGlass,
   Text,
-} from "./ui-components";
+} from "@/app/ui-components";
 import {
+  RollingText,
   TVBackground,
   PortfolioLarge,
   PortfolioSmall,
   Portfolio,
   ViewPortRenderer,
-} from "./components";
-import { useGetBreakpointValue } from "./hooks";
-import { BREAKPOINTS } from "./constants";
+} from "@/app/components";
+import { useGetBreakpointValue } from "@/app/hooks";
+import { BREAKPOINTS, LINKS } from "@/app/constants";
+import { Images } from "./components/portfolio/images";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
   const { getBreakpointValue, width } = useGetBreakpointValue();
-
-  const images = (
-    <Flex
-      direction="col"
-      className="gap-2 tablet:gap-6 z-10"
-      alignItems="stretch"
-    >
-      <Image
-        src="/images/revvity-labs-thumbnail.png"
-        className="w-full h-auto rounded-lg"
-        alt="Revvity Labs Thumbnail"
-        width={4000}
-        height={2667}
-      />
-      <Flex
-        direction="col"
-        className="gap-2 tablet:gap-6 w-full laptop:relative"
-      >
-        <Image
-          src="/images/scispot-thumbnail.png"
-          className="rounded-lg w-full aspect-[3/2] object-cover laptop:aspect-auto laptop:object-contain laptop:w-[calc(50%-0.75rem)] h-auto"
-          alt="SciSpot Thumbnail"
-          width={4000}
-          height={2667}
-        />
-        <div className="w-full aspect-[3/2] overflow-hidden laptop:aspect-auto laptop:absolute laptop:right-0 laptop:top-0 laptop:bottom-0 laptop:w-[calc(50%-0.75rem)] laptop:flex laptop:items-center">
-          <Image
-            src="/images/revvity-chat-thumbnail.png"
-            className="rounded-lg w-full h-full object-cover laptop:h-auto laptop:object-contain"
-            alt="Revvity Chat Thumbnail"
-            width={4000}
-            height={2667}
-          />
-        </div>
-      </Flex>
-      <Image
-        src="/images/plooto-thumbnail.png"
-        className="w-full h-auto rounded-lg"
-        alt="Plooto Thumbnail"
-        width={4000}
-        height={2667}
-      />
-    </Flex>
-  );
+  const router = useRouter();
 
   return (
     <Flex direction="col">
@@ -158,11 +120,93 @@ export default function Home() {
           </LiquidGlass>
         </Flex>
         {width < BREAKPOINTS.tablet ? (
-          images
+          <Images />
         ) : (
-          <Modal style={{ width: "100%" }}>{images}</Modal>
+          <Modal style={{ width: "100%" }}>
+            <Images />
+          </Modal>
         )}
       </Flex>
+      <Flex
+        direction="col"
+        className="laptop:flex-row laptop:gap-20 laptop:py-15 laptop:px-18 gap-4 tablet:p-6 tablet:pb-12 px-3 pt-5 pb-10"
+      >
+        <Flex direction="col" className="gap-6 flex-1">
+          <Flex direction="col" className="gap-3">
+            <Text variant="h3" className="laptop:text-[40px]">
+              Interested in{" "}
+              <span className="italic font-instrument text-shadow-none">
+                working together?
+              </span>
+            </Text>
+            <Text
+              variant="h4"
+              className="text-[18px] tablet:text-2xl tablet:font-light"
+            >
+              The items listed are my current freelance services. If you are
+              interested in a creative service unlisted or have questions about
+              my work, please contact me :)
+            </Text>
+          </Flex>
+          <Button
+            onClick={() => router.push(LINKS.contact.email)}
+            className="hidden laptop:block"
+          >
+            Contact
+          </Button>
+        </Flex>
+        <Flex direction="col" className="gap-6 flex-1" alignItems="center">
+          <Flex direction="col" className="gap-4">
+            <Accordion title="Digital" startOpen>
+              <Text variant="list" className="text-[18px] tablet:text-2xl">
+                UX + UI Design
+              </Text>
+              <Text variant="list" className="text-[18px] tablet:text-2xl">
+                UX Consulting
+              </Text>
+              <Text variant="list" className="text-[18px] tablet:text-2xl">
+                Product Strategy
+              </Text>
+              <Text variant="list" className="text-[18px] tablet:text-2xl">
+                Website Design
+              </Text>
+              <Text variant="list" className="text-[18px] tablet:text-2xl">
+                Prototyping
+              </Text>
+            </Accordion>
+            <Accordion title="Identity">
+              <Text variant="list" className="text-[18px] tablet:text-2xl">
+                Logo + Submark
+              </Text>
+              <Text variant="list" className="text-[18px] tablet:text-2xl">
+                Typography
+              </Text>
+              <Text variant="list" className="text-[18px] tablet:text-2xl">
+                Colour Palette
+              </Text>
+              <Text variant="list" className="text-[18px] tablet:text-2xl">
+                Graphics, Illustrations &amp; Icons
+              </Text>
+              <Text variant="list" className="text-[18px] tablet:text-2xl">
+                Brand Style Guide
+              </Text>
+            </Accordion>
+          </Flex>
+          <div
+            className={`${width < BREAKPOINTS.tablet ? "w-full" : "w-[200px]"} laptop:hidden`}
+          >
+            <Button
+              onClick={() => router.push(LINKS.contact.email)}
+              className="!flex-col"
+              style={{ width: "100%" }}
+            >
+              Contact
+            </Button>
+          </div>
+        </Flex>
+      </Flex>
+      <RollingText />
+      <Footer />
     </Flex>
   );
 }

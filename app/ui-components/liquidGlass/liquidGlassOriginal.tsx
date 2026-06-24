@@ -334,10 +334,7 @@ const GlassContainer = forwardRef<HTMLDivElement, GlassContainerProps>(
     const backdropStyle = {
       WebkitBackdropFilter: backdropBlur,
       backdropFilter: backdropBlur,
-      filter:
-        isFirefox || displacementScale === 0
-          ? null
-          : `url(#${filterId})`,
+      filter: isFirefox ? null : `url(#${filterId})`,
     };
 
     return (
@@ -351,52 +348,68 @@ const GlassContainer = forwardRef<HTMLDivElement, GlassContainerProps>(
           ...style,
         }}
       >
-        {displacementScale !== 0 ? (
-          <GlassFilter
-            aberrationIntensity={aberrationIntensity}
-            displacementScale={displacementScale}
-            id={filterId}
-            mode={mode}
-            shaderMapUrl={shaderMapUrl}
-          />
-        ) : null}
+        <GlassFilter
+          aberrationIntensity={aberrationIntensity}
+          displacementScale={displacementScale}
+          id={filterId}
+          mode={mode}
+          shaderMapUrl={shaderMapUrl}
+        />
 
         <div
           onMouseDown={onMouseDown}
           onMouseEnter={onMouseEnter}
           onMouseLeave={onMouseLeave}
           onMouseUp={onMouseUp}
-          style={{
-            alignItems: "center",
-            ...shapeStyle,
-            boxShadow: clipPathId
-              ? undefined
-              : overLight
-                ? "0px 16px 70px rgba(0, 0, 0, 0.75)"
-                : "0px 12px 40px rgba(0, 0, 0, 0.25)",
-            display: isShaped ? "flex" : "inline-flex",
-            gap: "24px",
-            height: clipPathSize?.height ?? "100%",
-            justifyContent: "center",
-            overflow: "hidden",
-            padding,
-            position: "relative",
-            transition: "all 0.2s ease-in-out",
-            width: clipPathSize?.width ?? "100%",
-          }}
+          style={
+            isShaped
+              ? {
+                  alignItems: "center",
+                  ...shapeStyle,
+                  display: "flex",
+                  gap: "24px",
+                  height: clipPathSize?.height ?? "100%",
+                  justifyContent: "center",
+                  overflow: "hidden",
+                  padding,
+                  position: "relative",
+                  transition: "all 0.2s ease-in-out",
+                  width: clipPathSize?.width ?? "100%",
+                }
+              : {
+                  alignItems: "center",
+                  borderRadius,
+                  boxShadow: overLight
+                    ? "0px 16px 70px rgba(0, 0, 0, 0.75)"
+                    : "0px 12px 40px rgba(0, 0, 0, 0.25)",
+                  display: "inline-flex",
+                  gap: "24px",
+                  overflow: "hidden",
+                  padding,
+                  position: "relative",
+                  transition: "all 0.2s ease-in-out",
+                }
+          }
         >
-          {/* backdrop layer — extend beyond clip bounds so blur has content to sample */}
           <span
             style={
-              {
-                ...backdropStyle,
-                height: isShaped ? "calc(100% + 40px)" : "100%",
-                left: isShaped ? "-20px" : undefined,
-                position: "absolute",
-                top: isShaped ? "-20px" : undefined,
-                width: isShaped ? "calc(100% + 40px)" : "100%",
-                ...(isShaped ? null : { inset: "0" }),
-              } as CSSProperties
+              (isShaped
+                ? {
+                    ...backdropStyle,
+                    borderRadius,
+                    height: "calc(100% + 40px)",
+                    left: "-20px",
+                    position: "absolute",
+                    top: "-20px",
+                    width: "calc(100% + 40px)",
+                  }
+                : {
+                    ...backdropStyle,
+                    borderRadius,
+                    inset: "0",
+                    overflow: "hidden",
+                    position: "absolute",
+                  }) as CSSProperties
             }
           />
 

@@ -18,6 +18,10 @@ export const LINKS = {
 export enum ROUTES {
   portfolio = "/",
   about = "/about",
+  revvityLabs = "/revvity-labs",
+  plooto = "/plooto",
+  scispot = "/scispot",
+  revvityAI = "/revvity-ai",
 }
 
 export enum BREAKPOINTS {
