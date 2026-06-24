@@ -1,0 +1,14 @@
+app/test/page.tsx
+  h_44ec2da86f6695 1-212
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.11",
+  "base_commit_sha": "293fee8c9998cf2322c84d3f24dd5141e603694d",
+  "prompts": {},
+  "humans": {
+    "h_44ec2da86f6695": {
+      "author": "DJTam02 <jacobtam2002@gmail.com>"
+    }
+  }
+}
