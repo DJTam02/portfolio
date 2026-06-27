@@ -388,6 +388,8 @@ const GlassContainer = forwardRef<HTMLDivElement, GlassContainerProps>(
                   padding,
                   position: "relative",
                   transition: "all 0.2s ease-in-out",
+                  width: style?.width,
+                  height: style?.height,
                 }
           }
         >
@@ -435,6 +437,7 @@ const GlassContainer = forwardRef<HTMLDivElement, GlassContainerProps>(
                 : "0px 2px 12px rgba(0, 0, 0, 0.4)",
               transition: "all 150ms ease-in-out",
               zIndex: 1,
+              height: style?.height,
             }}
           >
             {children}
@@ -493,7 +496,10 @@ export default function LiquidGlass({
   const clipPathId = `shape-clip-${useId().replace(/:/g, "")}`;
   const glassRef = useRef<HTMLDivElement>(null);
   const isShaped = Boolean(clipPath);
-  const shapeStyle = getShapeStyle(borderRadius, isShaped ? clipPathId : undefined);
+  const shapeStyle = getShapeStyle(
+    borderRadius,
+    isShaped ? clipPathId : undefined,
+  );
   const [isHovered, setIsHovered] = useState(false);
   const [isActive, setIsActive] = useState(false);
   const [glassSize, setGlassSize] = useState({ height: 0, width: 0 });
@@ -575,10 +581,18 @@ export default function LiquidGlass({
   return (
     <div
       ref={ref}
-      style={isStickyOrFixed ? undefined : { position: "relative", ...style }}
+      style={
+        isStickyOrFixed
+          ? undefined
+          : { position: "relative", ...style, height: undefined }
+      }
     >
       {clipPath ? (
-        <ShapeClipPathDef id={clipPathId} path={clipPath} scale={clipPathScale} />
+        <ShapeClipPathDef
+          id={clipPathId}
+          path={clipPath}
+          scale={clipPathScale}
+        />
       ) : null}
 
       {/* Over light effect */}
@@ -631,14 +645,14 @@ export default function LiquidGlass({
         saturation={saturation}
         style={{
           ...transformStyle,
-          left: isShaped ? 0 : undefined,
-          top: isShaped ? 0 : undefined,
+          left: isShaped ? 0 : transformStyle.left,
+          top: isShaped ? 0 : transformStyle.top,
           ...(clipPathSize
             ? {
                 height: clipPathSize.height,
                 width: clipPathSize.width,
               }
-            : null),
+            : { width: style?.width, height: style?.height }),
         }}
       >
         {children}

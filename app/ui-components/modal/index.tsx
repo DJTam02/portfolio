@@ -20,13 +20,18 @@ export const Modal = ({ children, className, ...rest }: ModalProps) => (
     className={`overflow-hidden cursor-default opacity-100 ${className}`}
     {...rest}
   >
-    <Flex className="gap-4 px-6 pt-5 pb-4 bg-[linear-gradient(90deg,rgba(255,255,255,0.12)_0%,rgba(255,255,255,0.35)_50%,rgba(255,255,255,0.12)_100%)]">
-      <Ellipse fillColour="#E37564" strokeColour="#A36151" />
-      <Ellipse fillColour="#ECC062" strokeColour="#B3984F" />
-      <Ellipse fillColour="#74C161" strokeColour="#5D8952" />
-    </Flex>
-    <Flex direction="col" className="p-10 h-full bg-liquid-glass">
-      {children}
+    <Flex direction="col">
+      <Flex className="gap-4 px-6 pt-5 pb-4 bg-[linear-gradient(90deg,rgba(255,255,255,0.12)_0%,rgba(255,255,255,0.35)_50%,rgba(255,255,255,0.12)_100%)]">
+        <Ellipse fillColour="#E37564" strokeColour="#A36151" />
+        <Ellipse fillColour="#ECC062" strokeColour="#B3984F" />
+        <Ellipse fillColour="#74C161" strokeColour="#5D8952" />
+      </Flex>
+      <Flex
+        direction="col"
+        className="desktop:p-10 laptop:p-8 tablet:p-6 p-3 h-full bg-liquid-glass"
+      >
+        {children}
+      </Flex>
     </Flex>
   </LiquidGlass>
 );

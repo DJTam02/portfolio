@@ -1,6 +1,8 @@
 import { useState, useEffect, useCallback } from "react";
 import { BREAKPOINTS } from "../constants";
 
+type BreakpointValue = string | number | undefined;
+
 export const useGetBreakpointValue = () => {
   // Keep initial render consistent between SSR and the client.
   const [width, setWidth] = useState(0);
@@ -18,7 +20,14 @@ export const useGetBreakpointValue = () => {
   }, []);
 
   const getBreakpointValue = useCallback(
-    (values: [number, number, number, number]) => {
+    <
+      A extends BreakpointValue,
+      B extends BreakpointValue,
+      C extends BreakpointValue,
+      D extends BreakpointValue,
+    >(
+      values: [A, B, C, D],
+    ) => {
       if (width < BREAKPOINTS.tablet) return values[0];
       if (width < BREAKPOINTS.laptop) return values[1];
       if (width < BREAKPOINTS.desktop) return values[2];

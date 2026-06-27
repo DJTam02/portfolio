@@ -5,6 +5,7 @@
   --foreground: #fafafa;
   --accent: #efc68d;
 
+  --liquid-glass-lightest: rgba(255, 255, 255, 0.12);
   --liquid-glass: rgba(255, 255, 255, 0.08);
   --liquid-glass-light: rgba(255, 255, 255, 0.04);
 }
@@ -15,6 +16,7 @@
   --color-accent: var(--accent);
   --color-liquid-glass: var(--liquid-glass);
   --color-liquid-glass-light: var(--liquid-glass-light);
+  --color-liquid-glass-lightest: var(--liquid-glass-lightest);
   --font-alegreya: var(--font-alegreya-sans);
   --font-instrument: var(--font-instrument-serif);
   --font-rubik-glitch: var(--font-rubik-glitch);

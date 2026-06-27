@@ -17,3 +17,4 @@ export {
   BLOB_PATH,
   BLOB_SIZE,
 } from "./shapedGlass";
+export { Callout } from "./callout";
