@@ -1,0 +1,92 @@
+app/ui-components/liquidGlass/liquidGlassOriginal.tsx
+  s_1e18019d043f3b::t_df9a1feaf0489b 492
+  s_1e18019d043f3b::t_bf38f30189b29f 306
+  s_1e18019d043f3b::t_ad7abc8390616b 641
+  s_1e18019d043f3b::t_89bb6fb0ad8751 345
+  s_1e18019d043f3b::t_c7cf1695b685f8 280
+  h_44ec2da86f6695 394-395,444
+  s_1e18019d043f3b::t_622b6de2dcf801 469
+app/types.ts
+  h_44ec2da86f6695 1-2,8-13
+app/revvity-labs/page.tsx
+  h_44ec2da86f6695 5,13,17,27
+app/components/portfolio/images.tsx
+  h_44ec2da86f6695 3-7,16,21-22,24
+app/hooks/index.ts
+  s_1e18019d043f3b::t_ee21086cb453af 3
+app/components/portfolio/photoHover.tsx
+  h_44ec2da86f6695 9
+app/revvity-labs/components/Reflections.tsx
+  h_44ec2da86f6695 1-3,5-179
+app/revvity-labs/components/ProblemPoint.tsx
+  h_44ec2da86f6695 1-26
+app/revvity-labs/components/BeyondMVP.tsx
+  h_44ec2da86f6695 1-78
+app/hooks/useActiveSection.ts
+  s_1e18019d043f3b::t_f98c671787a0c5 14,46-49,70
+app/revvity-labs/components/DesignDecisions.tsx
+  h_44ec2da86f6695 1-6,8-40,43-64,66-77,79-92,94-278
+app/components/SciSpotPreview.tsx
+  h_44ec2da86f6695 1-56
+app/components/PortfolioPage.tsx
+  h_44ec2da86f6695 1,3,5,8,12,14-15,18-23,35,38-54,56
+app/ui-components/footer/index.tsx
+  s_1e18019d043f3b::t_e373026129804e 14
+app/components/RevvityChatPreview.tsx
+  h_44ec2da86f6695 1-47,50-53
+app/components/RevvityLabsPreview.tsx
+  h_44ec2da86f6695 1-56,60-64
+app/ui-components/icon/constants.ts
+  h_44ec2da86f6695 7,19
+app/ui-components/icon/icons/CloseSmall.tsx
+  h_44ec2da86f6695 1-19
+app/ui-components/liquidGlass/index.tsx
+  s_1e18019d043f3b::t_19f37e8f45b3a9 95
+app/ui-components/navigation/index.tsx
+  h_44ec2da86f6695 15-27,54
+app/ui-components/icon/index.tsx
+  s_1e18019d043f3b::t_20a956f0148d75 13-17,27-28,35-36
+  h_44ec2da86f6695 31
+app/revvity-labs/components/LowFidelity.tsx
+  h_44ec2da86f6695 3,9,12-14,18-41
+app/hooks/useFixedTopAboveElement.ts
+  h_44ec2da86f6695 24
+  s_1e18019d043f3b::t_7a75397d3e7b18 1-23,25-71
+app/components/PlootoPreview.tsx
+  h_44ec2da86f6695 1-56,60-64
+app/components/SideNav.tsx
+  s_1e18019d043f3b::t_deddc02de79cd9 5-9,26,37-41,67,70
+app/constants.ts
+  h_44ec2da86f6695 1-6,38-63
+app/revvity-labs/components/FinalDecisions.tsx
+  h_44ec2da86f6695 1-4,6-49
+app/revvity-labs/components/DesignCritique.tsx
+  h_44ec2da86f6695 1-4,6-35
+app/ui-components/icon/types.ts
+  h_44ec2da86f6695 14
+app/globals.css
+  h_44ec2da86f6695 11,21
+app/revvity-labs/constants.ts
+  h_44ec2da86f6695 6,36
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.3",
+  "base_commit_sha": "dfbffe2aea21ca6e57ddf39e14cda8dd865127cf",
+  "prompts": {},
+  "humans": {
+    "h_44ec2da86f6695": {
+      "author": "DJTam02 <jacobtam2002@gmail.com>"
+    }
+  },
+  "sessions": {
+    "s_1e18019d043f3b": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "2da85f33-75dd-49f4-988e-066a6cdc3e8f",
+        "model": "default"
+      },
+      "human_author": "DJTam02 <jacobtam2002@gmail.com>"
+    }
+  }
+}
