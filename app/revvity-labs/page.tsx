@@ -2,7 +2,7 @@
 
 import { PortfolioPage } from "../components/PortfolioPage";
 import { Flex, LiquidGlass, Modal, Text } from "@/app/ui-components";
-import { REVIVITY_LABS_NAV_ITEMS } from "./constants";
+import { REVVITY_LABS } from "@/app/constants";
 import Image from "next/image";
 import { useGetBreakpointValue } from "@/app/hooks";
 
@@ -10,11 +10,11 @@ export default function RevvityLabs() {
   const { getBreakpointValue } = useGetBreakpointValue();
 
   return (
-    <PortfolioPage items={REVIVITY_LABS_NAV_ITEMS}>
+    <PortfolioPage project={REVVITY_LABS}>
       <Flex direction="col" className="laptop:gap-10 tablet:gap-6 gap-3">
         <LiquidGlass
           style={{ width: "100%", height: "100%" }}
-          borderRadius={16}
+          borderRadius={getBreakpointValue([8, 12, 16, 16])}
           wrapperClassname="!flex-col items-stretch"
         >
           <div className="laptop:p-8 tablet:4 p-3 h-full bg-liquid-glass-lightest">
@@ -24,6 +24,7 @@ export default function RevvityLabs() {
               width={1104}
               height={621}
               className="w-full h-auto"
+              loading="eager"
             />
           </div>
         </LiquidGlass>

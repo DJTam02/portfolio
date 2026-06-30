@@ -2,7 +2,11 @@
 
 import { useCallback, useLayoutEffect, useRef, useState } from "react";
 import { LiquidGlass, Flex, Button } from "@/app/ui-components";
-import { useActiveSection, useGetBreakpointValue } from "@/app/hooks";
+import {
+  useActiveSection,
+  useFixedTopAboveElement,
+  useGetBreakpointValue,
+} from "@/app/hooks";
 import { BREAKPOINTS } from "@/app/constants";
 
 interface SideNavItem {
@@ -19,6 +23,7 @@ interface SideNavProps extends Omit<
 
 const HIGHLIGHT_WIDTH = 212;
 const HIGHLIGHT_HEIGHT = 53;
+const SIDE_NAV_ID = "portfolio-side-nav";
 
 export const SideNav = ({ items, ...props }: SideNavProps) => {
   const { getBreakpointValue, width } = useGetBreakpointValue();
@@ -28,6 +33,11 @@ export const SideNav = ({ items, ...props }: SideNavProps) => {
   const navContainerRef = useRef<HTMLDivElement>(null);
   const navItemRefs = useRef<Map<string, HTMLDivElement>>(new Map());
   const [highlightTop, setHighlightTop] = useState(0);
+
+  const isVisible = width >= BREAKPOINTS.laptop;
+  const navTop = useFixedTopAboveElement(SIDE_NAV_ID, "portfolio-footer", {
+    enabled: isVisible,
+  });
 
   const updateHighlightPosition = useCallback(() => {
     const el = navItemRefs.current.get(activeId);
@@ -54,9 +64,10 @@ export const SideNav = ({ items, ...props }: SideNavProps) => {
 
   return (
     <LiquidGlass
+      id={SIDE_NAV_ID}
       style={{
         position: "fixed",
-        top: 133,
+        top: navTop,
         left: getBreakpointValue([32, 32, 32, 60]),
         width: 228,
       }}

@@ -92,6 +92,7 @@ export const LiquidGlass = ({
       style={{ cursor, ...size, ...style }}
       padding="0px"
       ref={containerRef}
+      id={id}
       {...rest}
     >
       <Flex

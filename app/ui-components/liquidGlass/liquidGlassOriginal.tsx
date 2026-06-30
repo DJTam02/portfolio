@@ -277,6 +277,7 @@ type GlassContainerProps = PropsWithChildren<{
   clipPathSize?: { height: number; width: number };
   displacementScale?: number;
   glassSize: { height: number; width: number };
+  id?: string;
   mode?: "standard" | "polar" | "prominent" | "shader";
   mouseOffset?: { x: number; y: number };
   onClick?: () => void;
@@ -302,6 +303,7 @@ const GlassContainer = forwardRef<HTMLDivElement, GlassContainerProps>(
       clipPathSize,
       displacementScale = 25,
       glassSize,
+      id,
       mode = "standard",
       onClick,
       onMouseDown,
@@ -340,6 +342,7 @@ const GlassContainer = forwardRef<HTMLDivElement, GlassContainerProps>(
     return (
       <div
         className={className}
+        id={id}
         onClick={onClick}
         ref={ref}
         style={{
@@ -388,8 +391,8 @@ const GlassContainer = forwardRef<HTMLDivElement, GlassContainerProps>(
                   padding,
                   position: "relative",
                   transition: "all 0.2s ease-in-out",
-                  width: style?.width,
-                  height: style?.height,
+                  width: "100%",
+                  height: "100%",
                 }
           }
         >
@@ -438,6 +441,7 @@ const GlassContainer = forwardRef<HTMLDivElement, GlassContainerProps>(
               transition: "all 150ms ease-in-out",
               zIndex: 1,
               height: style?.height,
+              width: style?.width,
             }}
           >
             {children}
@@ -462,6 +466,7 @@ export type LiquidGlassProps = {
   displacementScale?: number;
   elasticity?: number;
   globalMousePos?: { x: number; y: number };
+  id?: string;
   mode?: "standard" | "polar" | "prominent" | "shader";
   mouseContainer?: RefObject<HTMLElement | null> | null;
   mouseOffset?: { x: number; y: number };
@@ -484,6 +489,7 @@ export default function LiquidGlass({
   clipPathSize,
   displacementScale = 70,
   globalMousePos: externalGlobalMousePos,
+  id,
   mode = "standard",
   mouseOffset: externalMouseOffset,
   onClick,
@@ -632,6 +638,7 @@ export default function LiquidGlass({
           overLight ? displacementScale * 0.5 : displacementScale
         }
         glassSize={glassSize}
+        id={id}
         mode={mode}
         mouseOffset={mouseOffset}
         onClick={onClick}

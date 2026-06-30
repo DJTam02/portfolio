@@ -11,7 +11,7 @@ interface FooterProps {
 }
 
 export const Footer = ({ variant = "default" }: FooterProps) => (
-  <div className="relative">
+  <div id="portfolio-footer" className="relative">
     {/* Name Backgrounds */}
     <div
       className={`absolute ${variant === "default" ? "right-28 top-10" : "right-8 bottom-8.25"} hidden laptop:block`}

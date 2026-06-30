@@ -6,7 +6,7 @@ import { useGetBreakpointValue } from "@/app/hooks";
 import { BREAKPOINTS, ROUTES } from "@/app/constants";
 import { useRouter } from "next/navigation";
 
-interface PhotoHoverProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface PhotoHoverProps extends React.HTMLAttributes<HTMLDivElement> {
   src: string;
   alt: string;
   path: ROUTES;

@@ -11,6 +11,7 @@ function getInitialActiveId(ids: string[]): string {
 
 const ACTIVATION_LINE = 150;
 const BOTTOM_THRESHOLD = 50;
+const TOP_THRESHOLD = 50;
 
 export const useActiveSection = (ids: string[]) => {
   const [activeId, setActiveId] = useState(() => getInitialActiveId(ids));
@@ -42,6 +43,10 @@ export const useActiveSection = (ids: string[]) => {
       const { scrollY, innerHeight } = window;
       const docHeight = document.documentElement.scrollHeight;
 
+      if (scrollY <= TOP_THRESHOLD) {
+        return currentIds[0];
+      }
+
       if (scrollY + innerHeight >= docHeight - BOTTOM_THRESHOLD) {
         return currentIds[currentIds.length - 1];
       }
@@ -62,8 +67,7 @@ export const useActiveSection = (ids: string[]) => {
     };
 
     const applyActive = (next: string) => {
-      if (activeIdRef.current === next) return;
-      setActiveId(next);
+      setActiveId((prev) => (prev === next ? prev : next));
     };
 
     const onScroll = () => applyActive(pickActive());

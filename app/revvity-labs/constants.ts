@@ -3,6 +3,7 @@ import { ProblemScoping } from "@/app/revvity-labs/components/ProblemScoping";
 import { SpeakingToUsers } from "@/app/revvity-labs/components/SpeakingToUsers";
 import { MarketResearch } from "@/app/revvity-labs/components/MarketResearch";
 import { UserFlows } from "@/app/revvity-labs/components/UserFlows";
+import { BeyondMVP } from "@/app/revvity-labs/components/BeyondMVP";
 import { LowFidelity } from "@/app/revvity-labs/components/LowFidelity";
 import { DesignCritique } from "@/app/revvity-labs/components/DesignCritique";
 import { DesignDecisions } from "@/app/revvity-labs/components/DesignDecisions";
@@ -32,6 +33,7 @@ export const REVIVITY_LABS_NAV_ITEMS: PortfolioPageItem[] = [
     Component: MarketResearch,
   },
   { label: "User Flows", id: "user-flows", Component: UserFlows },
+  { label: "Beyond MVP", id: "beyond-mvp", Component: BeyondMVP },
   { label: "Low-Fidelity", id: "low-fidelity", Component: LowFidelity },
   {
     label: "Design Critique",
