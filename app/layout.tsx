@@ -8,7 +8,7 @@ import "./globals.css";
 
 const alegreyaSans = Alegreya_Sans({
   subsets: ["latin"],
-  weight: ["400", "300"],
+  weight: ["700", "400", "300"],
   variable: "--font-alegreya-sans",
 });
 

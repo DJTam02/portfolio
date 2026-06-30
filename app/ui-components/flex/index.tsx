@@ -15,7 +15,7 @@ export const Flex = ({
   ...rest
 }: FlexProps) => (
   <div
-    className={`flex flex-${direction} justify-${justifyContent} items-${alignItems} ${className}`}
+    className={`${className} flex flex-${direction} justify-${justifyContent} items-${alignItems}`}
     {...rest}
   />
 );

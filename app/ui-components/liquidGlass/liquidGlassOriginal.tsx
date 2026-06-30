@@ -277,6 +277,7 @@ type GlassContainerProps = PropsWithChildren<{
   clipPathSize?: { height: number; width: number };
   displacementScale?: number;
   glassSize: { height: number; width: number };
+  id?: string;
   mode?: "standard" | "polar" | "prominent" | "shader";
   mouseOffset?: { x: number; y: number };
   onClick?: () => void;
@@ -302,6 +303,7 @@ const GlassContainer = forwardRef<HTMLDivElement, GlassContainerProps>(
       clipPathSize,
       displacementScale = 25,
       glassSize,
+      id,
       mode = "standard",
       onClick,
       onMouseDown,
@@ -340,6 +342,7 @@ const GlassContainer = forwardRef<HTMLDivElement, GlassContainerProps>(
     return (
       <div
         className={className}
+        id={id}
         onClick={onClick}
         ref={ref}
         style={{
@@ -388,6 +391,8 @@ const GlassContainer = forwardRef<HTMLDivElement, GlassContainerProps>(
                   padding,
                   position: "relative",
                   transition: "all 0.2s ease-in-out",
+                  width: "100%",
+                  height: "100%",
                 }
           }
         >
@@ -435,6 +440,8 @@ const GlassContainer = forwardRef<HTMLDivElement, GlassContainerProps>(
                 : "0px 2px 12px rgba(0, 0, 0, 0.4)",
               transition: "all 150ms ease-in-out",
               zIndex: 1,
+              height: style?.height,
+              width: style?.width,
             }}
           >
             {children}
@@ -459,6 +466,7 @@ export type LiquidGlassProps = {
   displacementScale?: number;
   elasticity?: number;
   globalMousePos?: { x: number; y: number };
+  id?: string;
   mode?: "standard" | "polar" | "prominent" | "shader";
   mouseContainer?: RefObject<HTMLElement | null> | null;
   mouseOffset?: { x: number; y: number };
@@ -481,6 +489,7 @@ export default function LiquidGlass({
   clipPathSize,
   displacementScale = 70,
   globalMousePos: externalGlobalMousePos,
+  id,
   mode = "standard",
   mouseOffset: externalMouseOffset,
   onClick,
@@ -493,7 +502,10 @@ export default function LiquidGlass({
   const clipPathId = `shape-clip-${useId().replace(/:/g, "")}`;
   const glassRef = useRef<HTMLDivElement>(null);
   const isShaped = Boolean(clipPath);
-  const shapeStyle = getShapeStyle(borderRadius, isShaped ? clipPathId : undefined);
+  const shapeStyle = getShapeStyle(
+    borderRadius,
+    isShaped ? clipPathId : undefined,
+  );
   const [isHovered, setIsHovered] = useState(false);
   const [isActive, setIsActive] = useState(false);
   const [glassSize, setGlassSize] = useState({ height: 0, width: 0 });
@@ -575,10 +587,18 @@ export default function LiquidGlass({
   return (
     <div
       ref={ref}
-      style={isStickyOrFixed ? undefined : { position: "relative", ...style }}
+      style={
+        isStickyOrFixed
+          ? undefined
+          : { position: "relative", ...style, height: undefined }
+      }
     >
       {clipPath ? (
-        <ShapeClipPathDef id={clipPathId} path={clipPath} scale={clipPathScale} />
+        <ShapeClipPathDef
+          id={clipPathId}
+          path={clipPath}
+          scale={clipPathScale}
+        />
       ) : null}
 
       {/* Over light effect */}
@@ -618,6 +638,7 @@ export default function LiquidGlass({
           overLight ? displacementScale * 0.5 : displacementScale
         }
         glassSize={glassSize}
+        id={id}
         mode={mode}
         mouseOffset={mouseOffset}
         onClick={onClick}
@@ -631,14 +652,14 @@ export default function LiquidGlass({
         saturation={saturation}
         style={{
           ...transformStyle,
-          left: isShaped ? 0 : undefined,
-          top: isShaped ? 0 : undefined,
+          left: isShaped ? 0 : transformStyle.left,
+          top: isShaped ? 0 : transformStyle.top,
           ...(clipPathSize
             ? {
                 height: clipPathSize.height,
                 width: clipPathSize.width,
               }
-            : null),
+            : { width: style?.width, height: style?.height }),
         }}
       >
         {children}

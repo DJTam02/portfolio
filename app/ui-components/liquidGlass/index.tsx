@@ -8,18 +8,24 @@ interface LiquidGlassProps extends React.ComponentProps<
   typeof LiquidGlassOriginal
 > {
   cursor?: "pointer" | "default";
+  wrapperClassname?: string;
+  id?: string;
 }
 
 export const LiquidGlass = ({
   children,
   cursor = "pointer",
   style = {},
+  wrapperClassname = "",
+  id,
   ...rest
 }: LiquidGlassProps) => {
   const ref = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
+  const wrapperRef = useRef<HTMLDivElement>(null);
   const [size, setSize] = useState({});
   const [childWidth, setChildWidth] = useState<number | undefined>(undefined);
+  const [childHeight, setChildHeight] = useState<number | undefined>(undefined);
 
   useLayoutEffect(() => {
     if (!ref.current) return;
@@ -29,10 +35,17 @@ export const LiquidGlass = ({
       for (const entry of entries) {
         if (entry.contentRect) {
           const { width, height } = entry.target.getBoundingClientRect();
-          console.log(width, height);
+          console.log(id, width, height);
+          let verticalPadding = 0;
+          if (wrapperRef.current) {
+            const style = window.getComputedStyle(wrapperRef.current);
+            verticalPadding =
+              parseInt(style.paddingTop) + parseInt(style.paddingBottom);
+          }
           setSize({
-            width,
-            height,
+            width: width,
+            // height,
+            minHeight: height + verticalPadding,
           });
         }
       }
@@ -45,14 +58,19 @@ export const LiquidGlass = ({
   }, []);
 
   useLayoutEffect(() => {
-    if (!containerRef.current || !style.width) return;
+    if (!containerRef.current || (!style.width && !style.height)) return;
 
     // Use ResizeObserver to watch for dimension changes
     const resizeObserver = new ResizeObserver(async (entries) => {
       for (const entry of entries) {
         if (entry.contentRect) {
-          const { width } = entry.target.getBoundingClientRect();
-          setChildWidth(width);
+          const { width, height } = entry.target.getBoundingClientRect();
+          if (style.width) {
+            setChildWidth(width);
+          }
+          if (style.height) {
+            setChildHeight(height);
+          }
         }
       }
     });
@@ -61,7 +79,7 @@ export const LiquidGlass = ({
 
     // Clean up the observer on unmount
     return () => resizeObserver.disconnect();
-  }, [style.width]);
+  }, [style.width, style.height]);
 
   return (
     <LiquidGlassOriginal
@@ -74,14 +92,19 @@ export const LiquidGlass = ({
       style={{ cursor, ...size, ...style }}
       padding="0px"
       ref={containerRef}
+      id={id}
       {...rest}
     >
       <Flex
-        direction="col"
-        ref={ref}
-        style={childWidth ? { width: childWidth } : {}}
+        direction="row"
+        className={wrapperClassname}
+        style={{
+          width: childWidth || undefined,
+          minHeight: childHeight || undefined,
+        }}
+        ref={wrapperRef}
       >
-        {children}
+        <div ref={ref}>{children}</div>
       </Flex>
     </LiquidGlassOriginal>
   );

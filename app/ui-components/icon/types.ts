@@ -10,4 +10,5 @@ export type Icons =
   | "chevronUp"
   | "close"
   | "menu"
-  | "arrowDown";
+  | "arrowDown"
+  | "closeSmall";

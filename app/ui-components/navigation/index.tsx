@@ -12,6 +12,19 @@ import { Button } from "../button";
 
 const NAV_ROUTES = ["portfolio", "about"] as const;
 
+const getNavigationSection = (pathname: string) => {
+  switch (pathname) {
+    case ROUTES.portfolio:
+    case ROUTES.revvityLabs:
+    case ROUTES.plooto:
+    case ROUTES.scispot:
+    case ROUTES.revvityAI:
+      return "portfolio";
+    default:
+      return "about";
+  }
+};
+
 export const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -38,7 +51,7 @@ export const Navigation = () => {
         <LiquidGlass>
           <Flex className="p-2 bg-liquid-glass">
             {NAV_ROUTES.map((route) => {
-              const isCurrentPage = pathname === ROUTES[route];
+              const isCurrentPage = getNavigationSection(pathname) === route;
               return (
                 <Button
                   className={

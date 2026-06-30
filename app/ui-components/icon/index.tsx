@@ -10,6 +10,11 @@ interface IconProps extends Omit<
   scaleIcon?: boolean;
 }
 
+/** Tailwind spacing scale: size 4 = 1rem (16px). */
+function getIconSizePx(size: number) {
+  return size * 4;
+}
+
 export const Icon = ({
   name,
   size = 4,
@@ -19,14 +24,16 @@ export const Icon = ({
   ...rest
 }: IconProps) => {
   const IconComponent = icons[name];
+  const dimensionPx = getIconSizePx(size);
+
   return (
     <span
-      className={`flex flex-col justify-center items-center ${onClick ? "cursor-pointer" : ""} w-${size} h-${size} ${className}`}
+      className={`box-content inline-flex shrink-0 items-center justify-center w-${size} h-${size} ${onClick ? "cursor-pointer" : ""} ${className}`}
       {...rest}
     >
       <IconComponent
-        width={scaleIcon ? size * 4 : undefined}
-        height={scaleIcon ? size * 4 : undefined}
+        width={scaleIcon ? dimensionPx : undefined}
+        height={scaleIcon ? dimensionPx : undefined}
       />
     </span>
   );

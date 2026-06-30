@@ -1,3 +1,9 @@
+import { RevvityLabsPreview } from "./components/RevvityLabsPreview";
+import { SciSpotPreview } from "./components/SciSpotPreview";
+import { RevvityChatPreview } from "./components/RevvityChatPreview";
+import { PlootoPreview } from "./components/PlootoPreview";
+import { REVIVITY_LABS_NAV_ITEMS } from "./revvity-labs/constants";
+
 export const LINKS = {
   misc: {
     substack: "https://rebeccalai.substack.com/?utm_campaign=profile_chips",
@@ -29,3 +35,29 @@ export enum BREAKPOINTS {
   laptop = 1280,
   desktop = 1512,
 }
+
+export const REVVITY_LABS = {
+  navItems: REVIVITY_LABS_NAV_ITEMS,
+  id: "revvity-labs",
+  PreviewComponent: RevvityLabsPreview,
+};
+
+export const SCI_SPOT = {
+  navItems: [],
+  id: "scispot",
+  PreviewComponent: SciSpotPreview,
+};
+
+export const REVIVITY_CHAT = {
+  navItems: [],
+  id: "revvity-chat",
+  PreviewComponent: RevvityChatPreview,
+};
+
+export const PLOOTO = {
+  navItems: [],
+  id: "plooto",
+  PreviewComponent: PlootoPreview,
+};
+
+export const PROJECTS = [REVVITY_LABS, SCI_SPOT, REVIVITY_CHAT, PLOOTO];
