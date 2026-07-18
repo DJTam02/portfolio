@@ -35,6 +35,7 @@ export const ProblemDefinition = ({ id }: { id: string }) => {
         </Text>
         <Callout
           style={{ width: getBreakpointValue(["100%", "100%", 610, 828]) }}
+          wrapperClassname="laptop:!p-6 tablet:!p-4 !p-3"
         >
           <Text className="text-[16px] tablet:text-[18px] laptop:text-2xl">
             How might we leverage AI to help scientific researchers rapidly

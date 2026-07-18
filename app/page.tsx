@@ -35,7 +35,7 @@ export default function Home() {
 
   return (
     <Flex direction="col">
-      <Flex direction="col" className="laptop:h-screen laptop:min-h-216">
+      <Flex direction="col" className="laptop:min-h-216">
         <Navigation />
         <TVBackground />
       </Flex>
@@ -53,13 +53,13 @@ export default function Home() {
           mediumClassName="top-6 right-3 left-4"
           smallClassName="top-3 left-1 right-1"
         />
-        <Flex className="desktop:h-109.5 laptop:h-104 tablet:h-56.75 h-32.5 relative">
+        <Flex className="aspect-839/227 relative">
           <ShapedLiquidGlass
             scale={getBreakpointValue([0.24, 0.53, 0.91, 1])}
             style={{
-              left: getBreakpointValue([187, 344, 686, 802]),
+              left: getBreakpointValue(["55%", "50%", "50%", "50%"]),
               position: "absolute",
-              top: getBreakpointValue([6, 126, 215, 188]),
+              top: getBreakpointValue([16, 126, 215, 188]),
             }}
           />
           <ShapedLiquidGlass
@@ -79,7 +79,7 @@ export default function Home() {
             style={{
               right: getBreakpointValue([24, 42.5, 85.5, 86.5]),
               position: "absolute",
-              top: getBreakpointValue([89, 175, 302, 318]),
+              bottom: 0,
             }}
           />
           {/* I enjoy creating AI products button */}
@@ -92,7 +92,7 @@ export default function Home() {
           >
             <Text
               variant="h4"
-              className="desktop:px-8 laptop:py-4 laptop:px-7 tablet:px-4 tablet:py-2 hidden tablet:block whitespace-nowrap tablet:text-[18px] laptop:text-2xl desktop:text-[40px]"
+              className="desktop:px-8 laptop:py-3.5 laptop:px-6 tablet:px-4 tablet:py-2 hidden tablet:block whitespace-nowrap tablet:text-[18px] laptop:text-2xl desktop:text-[40px]"
             >
               I enjoy creating AI products!
             </Text>
@@ -106,7 +106,7 @@ export default function Home() {
           >
             <Flex
               alignItems="center"
-              className="desktop:px-8 laptop:py-4 laptop:px-7 tablet:px-4 tablet:py-2 py-1.5 px-3 gap-2 laptop:gap-2.5"
+              className="desktop:px-8 laptop:py-3.5 laptop:px-6 tablet:px-4 tablet:py-2 py-1.5 px-3 gap-2 laptop:gap-2.5"
             >
               <Text className="whitespace-nowrap tablet:text-[18px] laptop:text-2xl desktop:text-[40px]">
                 Check out my work below
@@ -127,9 +127,10 @@ export default function Home() {
           </Modal>
         )}
       </Flex>
+      {/* Add back when Rebecca starts freelancing again */}
       <Flex
         direction="col"
-        className="laptop:flex-row laptop:gap-20 laptop:py-15 laptop:px-18 gap-4 tablet:p-6 tablet:pb-12 px-3 pt-5 pb-10"
+        className="laptop:flex-row laptop:gap-20 laptop:py-15 laptop:px-18 gap-4 tablet:p-6 tablet:pb-12 px-3 pt-5 pb-10 hidden"
       >
         <Flex direction="col" className="gap-6 flex-1">
           <Flex direction="col" className="gap-3">

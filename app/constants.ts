@@ -22,7 +22,7 @@ export const LINKS = {
 };
 
 export enum ROUTES {
-  portfolio = "/test",
+  portfolio = "/",
   about = "/about",
   revvityLabs = "/revvity-labs",
   plooto = "/plooto",

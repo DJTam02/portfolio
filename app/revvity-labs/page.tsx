@@ -21,10 +21,12 @@ export default function RevvityLabs() {
             <Image
               src="/images/revvity-labs/preview.png"
               alt="Revvity Labs"
-              width={1104}
-              height={621}
+              width={5104}
+              height={2871}
               className="w-full h-auto"
               loading="eager"
+              sizes="100vw"
+              quality={95}
             />
           </div>
         </LiquidGlass>

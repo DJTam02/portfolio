@@ -55,7 +55,7 @@ export const Footer = ({ variant = "default" }: FooterProps) => (
                 return (
                   <Text
                     variant="link"
-                    className="laptop:text-sm h-10 laptop:h-auto flex flex-row items-center gap-1.5 first-letter:uppercase"
+                    className="laptop:text-[18px] h-10 laptop:h-auto flex flex-row items-center gap-1.5 first-letter:uppercase"
                     key={key}
                     href={link}
                     target="_blank"
@@ -78,7 +78,7 @@ export const Footer = ({ variant = "default" }: FooterProps) => (
                 return (
                   <Text
                     variant="link"
-                    className="laptop:text-sm h-10 laptop:h-auto flex flex-row items-center gap-1.5 first-letter:uppercase"
+                    className="laptop:text-[18px] h-10 laptop:h-auto flex flex-row items-center gap-1.5 first-letter:uppercase"
                     key={key}
                     href={link}
                     target="_blank"

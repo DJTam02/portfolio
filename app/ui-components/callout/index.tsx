@@ -10,7 +10,7 @@ export const Callout = ({
   return (
     <LiquidGlass
       style={{ width: "100%" }}
-      wrapperClassname={`${wrapperClassname} bg-liquid-glass-light px-4 py-3 border-l-2 tablet:border-l-4 border-l-foreground tablet:px-5 tablet:py-4 laptop:p-8 tablet:rounded-2xl rounded-lg`}
+      wrapperClassname={`${wrapperClassname} bg-liquid-glass-light px-4 py-3 tablet:gap-2 tablet:px-5 tablet:py-4 laptop:px-4 laptop:py-6 border-l-2 tablet:border-l-4 border-l-foreground tablet:rounded-2xl rounded-lg`}
       borderRadius={getBreakpointValue([8, 12, 16, 16])}
       {...props}
     >

@@ -23,7 +23,7 @@ export const TVBackground = () => (
     </svg>
     <Flex
       direction="col"
-      className="absolute gap-2 tablet:gap-4 laptop:gap-5 w-full laptop:px-45 px-15 top-[50%] -translate-y-1/2"
+      className="absolute gap-2 tablet:gap-4 laptop:gap-5 w-full laptop:px-45 tablet:px-[10vw] px-15 top-[50%] -translate-y-1/2"
     >
       <Text
         variant="h4Serif"
@@ -33,9 +33,26 @@ export const TVBackground = () => (
       </Text>
       <Text
         variant="h4Serif"
-        className="leading-[84%] desktop:text-[160px] laptop:text-[148px] tablet:text-[80px] text-[68px] not-italic !text-background"
+        className="!leading-[84%] desktop:text-[160px] laptop:text-[148px] tablet:text-[80px] text-[68px] not-italic !text-background"
       >
-        dreamer, innovator, storyteller, <i>designer.</i>
+        {/* 4 lines when pairs won't fit */}
+        <span className="tablet:hidden">
+          dreamer,
+          <br />
+          innovator,
+          <br />
+          storyteller,
+          <br />
+          <i>designer.</i>
+        </span>
+        {/* 2 lines — each pair stays together, never 3 */}
+        <span className="hidden tablet:inline">
+          <span className="whitespace-nowrap">dreamer, innovator,</span>
+          <br />
+          <span className="whitespace-nowrap">
+            storyteller, <i>designer.</i>
+          </span>
+        </span>
       </Text>
     </Flex>
   </Flex>
