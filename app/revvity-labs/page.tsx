@@ -146,10 +146,10 @@ export default function RevvityLabs() {
       </Modal>
       <Flex direction="col" className="gap-3 tablet:gap-4 laptop:gap-6">
         <Flex direction="col" className="gap-1 laptop:gap-2">
-          <Text className="text-[18px] laptop:text-2xl">
+          <Text className="text-[18px] laptop:text-2xl laptop:font-light">
             Design Philosophy 💭
           </Text>
-          <Text variant="h4">
+          <Text variant="h4" className="laptop:text-[40px]">
             The central challenge in designing RevvityLabs was the{" "}
             <span className="italic font-instrument">newness of A</span>I in
             scientific workflows.
