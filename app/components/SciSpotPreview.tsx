@@ -1,3 +1,5 @@
+"use client";
+
 import { PhotoHover, PhotoHoverProps } from "./portfolio/photoHover";
 import { Flex, Text, Chip, Button } from "@/app/ui-components";
 import { ROUTES } from "@/app/constants";

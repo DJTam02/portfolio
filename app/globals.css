@@ -22,6 +22,7 @@
   --font-alegreya: var(--font-alegreya-sans);
   --font-instrument: var(--font-instrument-serif);
   --font-rubik-glitch: var(--font-rubik-glitch);
+  --font-archivo: var(--font-archivo-black);
   --breakpoint-*: initial; /* Resets all default breakpoints */
   --breakpoint-tablet: 744px;
   --breakpoint-laptop: 1280px;
