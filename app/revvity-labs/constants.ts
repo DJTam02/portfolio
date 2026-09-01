@@ -46,8 +46,8 @@ export const REVIVITY_LABS_NAV_ITEMS: PortfolioPageItem[] = [
     Component: DesignDecisions,
   },
   {
-    label: "Final Decisions",
-    id: "final-decisions",
+    label: "Final Designs",
+    id: "final-designs",
     Component: FinalDecisions,
   },
   { label: "Reflections", id: "reflections", Component: Reflections },

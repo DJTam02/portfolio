@@ -11,4 +11,5 @@ export type Icons =
   | "close"
   | "menu"
   | "arrowDown"
-  | "closeSmall";
+  | "closeSmall"
+  | "check";

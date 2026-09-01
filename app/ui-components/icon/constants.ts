@@ -7,6 +7,7 @@ import { Close } from "./icons/Close";
 import { CloseSmall } from "./icons/CloseSmall";
 import { Menu } from "./icons/Menu";
 import { Icons, IconSizeProps } from "./types";
+import { Check } from "./icons/Check";
 
 export const icons: Record<Icons, React.FC<IconSizeProps>> = {
   arrowRight: ArrowRight,
@@ -17,4 +18,5 @@ export const icons: Record<Icons, React.FC<IconSizeProps>> = {
   menu: Menu,
   arrowDown: ArrowDown,
   closeSmall: CloseSmall,
+  check: Check,
 };

@@ -1,6 +1,6 @@
 import { Flex, LiquidGlass, Text } from "@/app/ui-components";
 import { SectionHeader } from "@/app/components";
-import { ProblemPoint } from "@/app/revvity-labs/components/ProblemPoint";
+import { ProblemPoint } from "@/app/components/ProblemPoint";
 import Image from "next/image";
 import { useGetBreakpointValue } from "@/app/hooks";
 

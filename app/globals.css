@@ -9,6 +9,8 @@
   --liquid-glass: rgba(255, 255, 255, 0.08);
   --liquid-glass-light: rgba(255, 255, 255, 0.04);
   --red: #f86d6d;
+  --green: #06B832;
+  --error: #FFA7A7;
 }
 
 @theme inline {
@@ -19,6 +21,8 @@
   --color-liquid-glass-light: var(--liquid-glass-light);
   --color-liquid-glass-lightest: var(--liquid-glass-lightest);
   --color-red: var(--red);
+  --color-green: var(--green);
+  --color-error: var(--error);
   --font-alegreya: var(--font-alegreya-sans);
   --font-instrument: var(--font-instrument-serif);
   --font-rubik-glitch: var(--font-rubik-glitch);

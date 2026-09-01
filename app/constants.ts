@@ -3,6 +3,7 @@ import { SciSpotPreview } from "./components/SciSpotPreview";
 import { RevvityChatPreview } from "./components/RevvityChatPreview";
 import { PlootoPreview } from "./components/PlootoPreview";
 import { REVIVITY_LABS_NAV_ITEMS } from "./revvity-labs/constants";
+import { SCISPOT_NAV_ITEMS } from "./scispot/constants";
 
 export const LINKS = {
   misc: {
@@ -44,7 +45,7 @@ export const REVVITY_LABS = {
 };
 
 export const SCI_SPOT = {
-  navItems: [],
+  navItems: SCISPOT_NAV_ITEMS,
   id: "scispot",
   PreviewComponent: SciSpotPreview,
 };
