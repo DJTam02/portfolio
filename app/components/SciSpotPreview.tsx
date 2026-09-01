@@ -18,7 +18,7 @@ export const SciSpotPreview = ({
       src="/images/scispot-thumbnail.png"
       alt="SciSpot Thumbnail"
       path={ROUTES.scispot}
-      wrapperClassName={`rounded-lg w-full flex-1 aspect-[3/2] object-cover laptop:aspect-auto laptop:object-contain laptop:w-[calc(50%-0.75rem)] h-auto ${wrapperClassName}`}
+      wrapperClassName={`w-full flex-1 aspect-[3/2] object-cover laptop:aspect-auto laptop:object-contain laptop:w-[calc(50%-0.75rem)] h-auto ${wrapperClassName}`}
       {...props}
     >
       <Flex

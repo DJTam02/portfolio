@@ -39,15 +39,15 @@ export const PhotoHover = ({
 
   return (
     <div
-      className={`rounded-lg overflow-hidden group relative ${wrapperClassName}`}
+      className={`rounded-[16px] overflow-hidden group relative ${wrapperClassName}`}
       onClick={handleWrapperClick}
       {...rest}
     >
       <Image
         src={src}
         alt={alt}
-        width={4000}
-        height={2667}
+        width={2000}
+        height={1334}
         className={imageClassName}
       />
       <div
