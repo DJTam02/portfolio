@@ -1,0 +1,16 @@
+app/about/constants.ts
+  h_44ec2da86f6695 101-102,105
+app/about/page.tsx
+  h_44ec2da86f6695 94,179,182-183,185-189,191-192,194-215,217,219-223
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.0",
+  "base_commit_sha": "83352fb06dfc34ba5fc6aeab9c1c659409572ecd",
+  "prompts": {},
+  "humans": {
+    "h_44ec2da86f6695": {
+      "author": "DJTam02 <jacobtam2002@gmail.com>"
+    }
+  }
+}
