@@ -22,7 +22,7 @@ export const Button = ({
 }: ButtonProps) => {
   const content = (
     <div
-      onClick={onClick}
+      onClick={isBorderless ? onClick : undefined}
       className={`${className} px-5 py-3 justify-between items-center ${size === "lg" ? "h-15 " : ""}flex flex-row items-center gap-4 bg-liquid-glass whitespace-nowrap`}
     >
       {typeof children === "string" ? (

@@ -28,6 +28,7 @@ export enum ROUTES {
   plooto = "/plooto",
   scispot = "/scispot",
   revvityAI = "/revvity-ai",
+  lifeCredits = "/life-credits",
 }
 
 export enum BREAKPOINTS {

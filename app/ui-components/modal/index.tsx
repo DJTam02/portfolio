@@ -14,7 +14,7 @@ interface ModalProps extends React.ComponentProps<typeof LiquidGlass> {
 
 export const Modal = ({ children, className, ...rest }: ModalProps) => (
   <LiquidGlass
-    borderRadius={16}
+    borderRadius={20}
     elasticity={0}
     cursor="default"
     className={`overflow-hidden cursor-default opacity-100 ${className}`}
