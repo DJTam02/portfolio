@@ -98,11 +98,11 @@ export const SLIDESHOW_PHOTOS: SlideshowPhoto[] = [
     date: "January, 2025",
   },
   {
-    image: "/images/about/kowloon-2.png",
-    alt: "Kowloon",
+    image: "/images/about/macao.png",
+    alt: "Macao",
     width: 1168,
     height: 1556,
-    place: "Kowloon, Hong Kong",
+    place: "Macao",
     date: "January, 2025",
   },
   {

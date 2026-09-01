@@ -91,7 +91,7 @@ export default function About() {
           }}
         />
         <PhotoSection
-          text="What I did know was that I loved connecting with people. Building relationships, understanding what made them tick, it always felt second nature to me. I was that person who could strike up a conversation with just about anyone."
+          text="What I did know was that I loved connecting with people. Building relationships, understanding what made people tick, it always felt second nature to me. I was that person who could strike up a conversation with just about anyone."
           image="/images/about/about-3.png"
           imageAlt="Photo with sister"
           imageWidth={1168}
@@ -176,51 +176,53 @@ export default function About() {
         </Flex>
       </Modal>
       <PhotoSlideshow />
-      <Flex
-        direction="col"
-        className="gap-3 laptop:gap-6 hidden tablet:flex"
-        alignItems="center"
-      >
-        <Text variant="h4" className="laptop:text-[40px]">
-          A dedication to the <i className="font-instrument">people </i> who
-          have had the biggest impact on my growth both as a designer and as a
-          person &lt;3
-        </Text>
+      <Flex direction="col" className="gap-8" alignItems="center">
         <Flex
           direction="col"
-          className="gap-4 laptop:flex-row laptop:gap-6 desktop:gap-8"
+          className="gap-3 laptop:gap-6 hidden tablet:flex"
+          alignItems="center"
         >
+          <Text variant="h4" className="laptop:text-[40px]">
+            A dedication to the <i className="font-instrument">people </i> who
+            have had the biggest impact on my growth both as a designer and as a
+            person &lt;3
+          </Text>
           <Flex
-            direction="row"
-            className="gap-4 laptop:gap-6 desktop:gap-8 flex-1 laptop:flex-2/3"
+            direction="col"
+            className="gap-4 laptop:flex-row laptop:gap-6 desktop:gap-8"
           >
-            <Flex className="flex-1">
+            <Flex
+              direction="row"
+              className="gap-4 laptop:gap-6 desktop:gap-8 flex-1 laptop:flex-2/3"
+            >
+              <Flex className="flex-1">
+                <Image
+                  src="/images/about/rebecca+ema.png"
+                  alt="Rebecca, Aria, and Edrea"
+                  width={1168}
+                  height={1556}
+                  className="flex-1 h-auto object-cover"
+                />
+              </Flex>
+              <Flex className="flex-1">
+                <Image
+                  src="/images/about/ppg.png"
+                  alt="Rebecca and Ema"
+                  width={1006}
+                  height={1556}
+                  className="flex-1 h-auto object-cover"
+                />
+              </Flex>
+            </Flex>
+            <Flex className="flex-1 laptop:flex-1/3">
               <Image
-                src="/images/about/rebecca+ema.png"
-                alt="Rebecca, Aria, and Edrea"
-                width={1168}
-                height={1556}
-                className="flex-1 h-auto object-cover"
+                src="/images/about/rebecca+jacob.JPG"
+                alt="Rebecca and Jacob"
+                width={2048}
+                height={1536}
+                className="object-cover"
               />
             </Flex>
-            <Flex className="flex-1">
-              <Image
-                src="/images/about/ppg.png"
-                alt="Rebecca and Ema"
-                width={1006}
-                height={1556}
-                className="flex-1 h-auto object-cover"
-              />
-            </Flex>
-          </Flex>
-          <Flex className="flex-1 laptop:flex-1/3">
-            <Image
-              src="/images/about/rebecca+jacob.jpg"
-              alt="Rebecca and Jacob"
-              width={2048}
-              height={1536}
-              className="object-cover"
-            />
           </Flex>
         </Flex>
         <Button hasIcon onClick={() => router.push(ROUTES.lifeCredits)}>
