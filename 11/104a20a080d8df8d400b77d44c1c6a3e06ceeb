@@ -1,0 +1,59 @@
+app/ui-components/icon/icons/Check.tsx
+  h_44ec2da86f6695 1-19
+app/ui-components/icon/constants.ts
+  h_44ec2da86f6695 10,21
+app/scispot/components/MarketResearch.tsx
+  h_44ec2da86f6695 1-77
+app/revvity-labs/components/DesignDecisions.tsx
+  h_44ec2da86f6695 3
+app/globals.css
+  h_44ec2da86f6695 12-13,24-25
+app/scispot/components/ProblemScoping.tsx
+  h_44ec2da86f6695 1-83
+app/scispot/pages.tsx
+  h_44ec2da86f6695 1-190
+app/scispot/components/UserFlows.tsx
+  h_44ec2da86f6695 1-48
+app/components/ProblemPoint.tsx
+  h_44ec2da86f6695 1-40
+app/scispot/components/SpeakingToUsers.tsx
+  h_44ec2da86f6695 1-82
+app/scispot/components/FinalDecisions.tsx
+  h_44ec2da86f6695 1-43
+app/scispot/components/Reflections.tsx
+  h_44ec2da86f6695 1-188
+app/revvity-labs/constants.ts
+  h_44ec2da86f6695 49-50
+app/scispot/constants.ts
+  h_44ec2da86f6695 1-61
+app/scispot/components/index.ts
+  h_44ec2da86f6695 1-12
+app/ui-components/icon/types.ts
+  h_44ec2da86f6695 15
+  h_44ec2da86f6695 14
+app/scispot/components/DesignCritique.tsx
+  h_44ec2da86f6695 1-48
+app/scispot/components/DesignDecisions.tsx
+  h_44ec2da86f6695 1-372
+app/scispot/components/Impacts.tsx
+  h_44ec2da86f6695 1-84
+app/constants.ts
+  h_44ec2da86f6695 6,48
+app/scispot/components/LowFidelity.tsx
+  h_44ec2da86f6695 1-53
+app/scispot/components/ProblemDefinition.tsx
+  h_44ec2da86f6695 1-63
+app/scispot/components/BeyondMVP.tsx
+  h_44ec2da86f6695 1-78
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.0",
+  "base_commit_sha": "11104a20a080d8df8d400b77d44c1c6a3e06ceeb",
+  "prompts": {},
+  "humans": {
+    "h_44ec2da86f6695": {
+      "author": "DJTam02 <jacobtam2002@gmail.com>"
+    }
+  }
+}
