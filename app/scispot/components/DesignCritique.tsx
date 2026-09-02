@@ -19,12 +19,18 @@ export const DesignCritique = ({ id }: { id: string }) => {
           Rather than gathering all feedback in one session, I split critique
           across two teams with different lenses:
         </Text>
-        <Text variant="list" className="tablet:text-[16px] laptop:text-[18px]">
+        <Text
+          variant="list"
+          className="tablet:text-[16px] laptop:text-[18px] font-normal"
+        >
           With the engineering team, I focused on <b>feasibility</b>: flagging
           interactions that might introduce technical debt or be unrealistic
           within our timeline.
         </Text>
-        <Text variant="list" className="tablet:text-[16px] laptop:text-[18px]">
+        <Text
+          variant="list"
+          className="tablet:text-[16px] laptop:text-[18px] font-normal"
+        >
           With the customer success team, I focused on <b>real-world usage</b>:
           they knew which workflows customers called in most often for help,
           which grounded my designs in actual pain points rather than assumed

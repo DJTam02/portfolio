@@ -28,7 +28,7 @@ export const DesignDecisions = ({ id }: { id: string }) => {
           direction="col"
           className="laptop:flex-row gap-3 tablet:gap-4 laptop:gap-6"
         >
-          <Flex direction="col" className="gap-2 tablet:gap-3">
+          <Flex direction="col" className="gap-2 tablet:gap-3 flex-1">
             <Image
               src="/images/scispot/homepage.png"
               alt="Homepage"
@@ -42,7 +42,7 @@ export const DesignDecisions = ({ id }: { id: string }) => {
               first-time users but would become cumbersome for seasoned ones.
             </Text>
           </Flex>
-          <Flex direction="col" className="gap-2 tablet:gap-3">
+          <Flex direction="col" className="gap-2 tablet:gap-3 flex-1">
             <Image
               src="/images/scispot/spreadsheet.png"
               alt="Table"
@@ -62,13 +62,12 @@ export const DesignDecisions = ({ id }: { id: string }) => {
           direction="col"
           className="laptop:flex-row gap-3 tablet:gap-4 laptop:gap-6"
         >
-          <Flex direction="col" className="gap-2 tablet:gap-3">
+          <Flex direction="col" className="gap-2 tablet:gap-3 flex-1">
             <Image
-              src="/images/scispot/dashboard.png"
+              src="/images/scispot/dashboard-test.png"
               alt="Dashboard"
-              width={1480}
-              height={958}
-              className="flex-1 h-auto"
+              width={1145}
+              height={740}
             />
             <Text className="tablet:text-[16px] laptop:text-[18px]">
               <b>Lab process tracking app:</b> This product is mostly project
@@ -76,13 +75,13 @@ export const DesignDecisions = ({ id }: { id: string }) => {
               experiment-driven nature of plate work.
             </Text>
           </Flex>
-          <Flex direction="col" className="gap-2 tablet:gap-3">
+          <Flex direction="col" className="gap-2 tablet:gap-3 flex-1">
             <Image
               src="/images/scispot/export.png"
               alt="Export"
               width={1480}
               height={958}
-              className="flex-1 h-auto"
+              className="flex-1"
             />
             <Text className="tablet:text-[16px] laptop:text-[18px]">
               <b>Note-taking app:</b> Scientists already use it to plan
@@ -106,15 +105,18 @@ export const DesignDecisions = ({ id }: { id: string }) => {
               flex: getBreakpointValue([1, undefined, 1, 1]),
             }}
           >
-            <Text className="text-[18px] font-bold laptop:text-2xl laptop:font-normal">
-              The Call 📣
-            </Text>
-            <Text className="tablet:text-[16px] laptop:text-[18px]">
-              The note-taking app was the only option that met every constraint:
-              it was where users already spent most of their time, it supported
-              the full workflow rather than a single phase, and it introduced
-              Plato without disrupting the habits scientists had already built.
-            </Text>
+            <Flex direction="col" className="gap-1 tablet:gap-2">
+              <Text className="text-[18px] font-bold laptop:text-2xl laptop:font-normal">
+                The Call 📣
+              </Text>
+              <Text className="tablet:text-[16px] laptop:text-[18px]">
+                The note-taking app was the only option that met every
+                constraint: it was where users already spent most of their time,
+                it supported the full workflow rather than a single phase, and
+                it introduced Plato without disrupting the habits scientists had
+                already built.
+              </Text>
+            </Flex>
           </LiquidGlass>
           <LiquidGlass
             wrapperClassname="gap-1 px-4 py-3 tablet:gap-2 tablet:px-5 tablet:py-4 laptop:px-4 laptop:py-6 !flex-col bg-liquid-glass-light w-full"
@@ -126,15 +128,17 @@ export const DesignDecisions = ({ id }: { id: string }) => {
               minWidth: 0,
             }}
           >
-            <Text className="text-[18px] font-bold laptop:text-2xl laptop:font-normal">
-              The Tradeoffs ⚠️
-            </Text>
-            <Text className="tablet:text-[16px] laptop:text-[18px]">
-              By anchoring this experience to the note-taking app, users working
-              outside of it wouldn&apos;t encounter Plato naturally. This was a
-              limitation we accepted to get the core experience right for the
-              majority use case.
-            </Text>
+            <Flex direction="col" className="gap-1 tablet:gap-2">
+              <Text className="text-[18px] font-bold laptop:text-2xl laptop:font-normal">
+                The Tradeoffs ⚠️
+              </Text>
+              <Text className="tablet:text-[16px] laptop:text-[18px]">
+                By anchoring this experience to the note-taking app, users
+                working outside of it wouldn&apos;t encounter Plato naturally.
+                This was a limitation we accepted to get the core experience
+                right for the majority use case.
+              </Text>
+            </Flex>
           </LiquidGlass>
         </Flex>
       </Flex>
@@ -158,14 +162,16 @@ export const DesignDecisions = ({ id }: { id: string }) => {
           direction="col"
           className="gap-3 tablet:gap-4 laptop:gap-6 desktop:flex-row"
         >
-          <Flex direction="col" className="gap-3">
-            <Image
-              src="/images/scispot/before.png"
-              alt="Initial Design"
-              width={1480}
-              height={958}
-              className="w-full h-[33%] desktop:h-auto"
-            />
+          <Flex direction="col" className="gap-3 flex-1">
+            <div className="w-full overflow-hidden aspect-1480/270 desktop:aspect-1480/958">
+              <Image
+                src="/images/scispot/before.png"
+                alt="Initial Design"
+                width={1480}
+                height={958}
+                className="w-full h-full object-cover object-top"
+              />
+            </div>
             <Flex direction="col" className="gap-2 tablet:gap-3">
               <Text className="tablet:text-[16px] laptop:text-[18px]">
                 My initial idea was a button or toolbar. But there was one main
@@ -182,7 +188,7 @@ export const DesignDecisions = ({ id }: { id: string }) => {
               </ProblemPoint>
             </Flex>
           </Flex>
-          <Flex direction="col" className="gap-3">
+          <Flex direction="col" className="gap-3 flex-1">
             <Image
               src="/images/scispot/after.png"
               alt="Final Design"
@@ -221,13 +227,15 @@ export const DesignDecisions = ({ id }: { id: string }) => {
               flex: getBreakpointValue([1, undefined, 1, 1]),
             }}
           >
-            <Text className="text-[18px] font-bold laptop:text-2xl laptop:font-normal">
-              The Call 📣
-            </Text>
-            <Text className="tablet:text-[16px] laptop:text-[18px]">
-              Embed Plato as a contextual component within the note-taking app
-              rather than surfacing it as a standalone UI element.
-            </Text>
+            <Flex direction="col" className="gap-1 tablet:gap-2">
+              <Text className="text-[18px] font-bold laptop:text-2xl laptop:font-normal">
+                The Call 📣
+              </Text>
+              <Text className="tablet:text-[16px] laptop:text-[18px]">
+                Embed Plato as a contextual component within the note-taking app
+                rather than surfacing it as a standalone UI element.
+              </Text>
+            </Flex>
           </LiquidGlass>
           <LiquidGlass
             wrapperClassname="gap-1 px-4 py-3 tablet:gap-2 tablet:px-5 tablet:py-4 laptop:px-4 laptop:py-6 !flex-col bg-liquid-glass-light w-full"
@@ -239,16 +247,18 @@ export const DesignDecisions = ({ id }: { id: string }) => {
               minWidth: 0,
             }}
           >
-            <Text className="text-[18px] font-bold laptop:text-2xl laptop:font-normal">
-              The Tradeoffs ⚠️
-            </Text>
-            <Text className="tablet:text-[16px] laptop:text-[18px]">
-              This approach tied Plato&apos;s discoverability to users who
-              already used the backslash embedding feature. Users unfamiliar
-              with that pattern might still miss it. We accepted this limitation
-              knowing that backslash embedding was one of the platform&apos;s
-              most used interactions.
-            </Text>
+            <Flex direction="col" className="gap-1 tablet:gap-2">
+              <Text className="text-[18px] font-bold laptop:text-2xl laptop:font-normal">
+                The Tradeoffs ⚠️
+              </Text>
+              <Text className="tablet:text-[16px] laptop:text-[18px]">
+                This approach tied Plato&apos;s discoverability to users who
+                already used the backslash embedding feature. Users unfamiliar
+                with that pattern might still miss it. We accepted this
+                limitation knowing that backslash embedding was one of the
+                platform&apos;s most used interactions.
+              </Text>
+            </Flex>
           </LiquidGlass>
         </Flex>
       </Flex>
@@ -272,7 +282,7 @@ export const DesignDecisions = ({ id }: { id: string }) => {
           direction="col"
           className="gap-3 tablet:gap-4 laptop:gap-6 desktop:flex-row"
         >
-          <Flex direction="col" className="gap-3">
+          <Flex direction="col" className="gap-3 flex-1">
             <Image
               src="/images/scispot/modal-less.png"
               alt="Modal Less"
@@ -295,7 +305,7 @@ export const DesignDecisions = ({ id }: { id: string }) => {
               </ProblemPoint>
             </Flex>
           </Flex>
-          <Flex direction="col" className="gap-3">
+          <Flex direction="col" className="gap-3 flex-1">
             <Image
               src="/images/scispot/with-modal.png"
               alt="With Modal"

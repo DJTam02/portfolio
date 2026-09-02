@@ -42,41 +42,48 @@ export const ProblemScoping = ({ id }: { id: string }) => {
         style={{ width: "100%", height: "100%" }}
         wrapperClassname="gap-1 tablet:gap-2 !flex-col justify-center"
       >
-        <Text className="text-[18px] laptop:text-2xl laptop:font-normal">
-          Fragmented workflows → unified entry point
-        </Text>
-        <Text className="tablet:text-[16px] laptop:text-[18px]">
-          Scientists were context-switching between three products to complete
-          the same task. Plato needed a single, centralized home that felt
-          native to their existing workflow.
-        </Text>
+        <Flex direction="col" className="gap-1 tablet:gap-2">
+          <Text className="text-[18px] laptop:text-2xl laptop:font-normal">
+            Fragmented workflows → unified entry point
+          </Text>
+          <Text className="tablet:text-[16px] laptop:text-[18px]">
+            Scientists were context-switching between three products to complete
+            the same task. Plato needed a single, centralized home that felt
+            native to their existing workflow.
+          </Text>
+        </Flex>
       </Callout>
       <Callout
         style={{ width: "100%", height: "100%" }}
         wrapperClassname="gap-1 tablet:gap-2 !flex-col justify-center"
       >
-        <Text className="text-[18px] laptop:text-2xl laptop:font-normal">
-          Low feature discoverability → guided AI suggestions
-        </Text>
-        <Text className="tablet:text-[16px] laptop:text-[18px]">
-          Low feature discoverability → guided AI suggestions Users didn&apos;t
-          know what the platform could do. Plato needed to proactively surface
-          its capabilities rather than waiting to be asked.
-        </Text>
+        <Flex direction="col" className="gap-1 tablet:gap-2">
+          <Text className="text-[18px] laptop:text-2xl laptop:font-normal">
+            Low feature discoverability → guided AI suggestions
+          </Text>
+          <Text className="tablet:text-[16px] laptop:text-[18px]">
+            Low feature discoverability → guided AI suggestions Users
+            didn&apos;t know what the platform could do. Plato needed to
+            proactively surface its capabilities rather than waiting to be
+            asked.
+          </Text>
+        </Flex>
       </Callout>
       <Callout
         style={{ width: "100%", height: "100%" }}
         wrapperClassname="gap-1 tablet:gap-2 !flex-col justify-center"
       >
-        <Text className="text-[18px] laptop:text-2xl laptop:font-normal">
-          AI skepticism → seamless, low-friction integration to existing
-          platform
-        </Text>
-        <Text className="tablet:text-[16px] laptop:text-[18px]">
-          Scientists were unfamiliar with AI and unlikely to trust it
-          immediately. Plato needed to feel like a natural extension of existing
-          workflows, not a new tool to learn.
-        </Text>
+        <Flex direction="col" className="gap-1 tablet:gap-2">
+          <Text className="text-[18px] laptop:text-2xl laptop:font-normal">
+            AI skepticism → seamless, low-friction integration to existing
+            platform
+          </Text>
+          <Text className="tablet:text-[16px] laptop:text-[18px]">
+            Scientists were unfamiliar with AI and unlikely to trust it
+            immediately. Plato needed to feel like a natural extension of
+            existing workflows, not a new tool to learn.
+          </Text>
+        </Flex>
       </Callout>
     </Flex>
   );

@@ -46,30 +46,34 @@ export const MarketResearch = ({ id }: { id: string }) => {
       >
         <Callout
           style={{ width: "100%", height: "100%" }}
-          wrapperClassname="gap-1 tablet:gap-2 !flex-col justify-center"
+          wrapperClassname="gap-1 tablet:gap-2 !flex-col"
         >
-          <Text className="text-[18px] laptop:text-2xl font-bold laptop:font-normal">
-            Conversational AI alienates non-technical users
-          </Text>
-          <Text className="tablet:text-[16px] laptop:text-[18px]">
-            Most AI products default to open-ended chat interfaces, which assume
-            users already know what to ask for. For scientists unfamiliar with
-            AI, this creates an immediate barrier.
-          </Text>
+          <Flex direction="col" className="gap-1 tablet:gap-2">
+            <Text className="text-[18px] laptop:text-2xl font-bold laptop:font-normal">
+              Conversational AI alienates non-technical users
+            </Text>
+            <Text className="tablet:text-[16px] laptop:text-[18px]">
+              Most AI products default to open-ended chat interfaces, which
+              assume users already know what to ask for. For scientists
+              unfamiliar with AI, this creates an immediate barrier.
+            </Text>
+          </Flex>
         </Callout>
         <Callout
           style={{ width: "100%", height: "100%" }}
-          wrapperClassname="gap-1 tablet:gap-2 !flex-col justify-center"
+          wrapperClassname="gap-1 tablet:gap-2 !flex-col"
         >
-          <Text className="text-[18px] laptop:text-2xl font-bold laptop:font-normal">
-            No precedent for AI in lab workflows
-          </Text>
-          <Text className="tablet:text-[16px] laptop:text-[18px]">
-            No existing tool had successfully introduced AI into a scientific
-            plate management context. This confirmed we were designing without a
-            safety net, and that we had a real opportunity to define what
-            state-of-the-art looked like.
-          </Text>
+          <Flex direction="col" className="gap-1 tablet:gap-2">
+            <Text className="text-[18px] laptop:text-2xl font-bold laptop:font-normal">
+              No precedent for AI in lab workflows
+            </Text>
+            <Text className="tablet:text-[16px] laptop:text-[18px]">
+              No existing tool had successfully introduced AI into a scientific
+              plate management context. This confirmed we were designing without
+              a safety net, and that we had a real opportunity to define what
+              state-of-the-art looked like.
+            </Text>
+          </Flex>
         </Callout>
       </Flex>
     </Flex>

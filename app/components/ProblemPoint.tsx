@@ -29,8 +29,8 @@ export const ProblemPoint = ({
       ) : (
         <Icon
           name="check"
-          size={getBreakpointValue([1.5, 1.75, 2, 2])}
-          className="bg-green rounded-full laptop:p-2 tablet:p-1.5 p-1.25"
+          size={getBreakpointValue([2.5, 2.75, 4, 4])}
+          className="bg-green rounded-full laptop:p-1 tablet:p-1 p-0.75"
           scaleIcon
         />
       )}

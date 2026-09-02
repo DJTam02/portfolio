@@ -28,24 +28,24 @@ export const ProblemDefinition = ({ id }: { id: string }) => {
           className="gap-3 tablet:gap-4 laptop:gap-6 tablet:flex-row"
         >
           <Callout
-            style={{ width: getBreakpointValue(["100%", "100%", 610, 828]) }}
-            wrapperClassname="laptop:!p-6 tablet:!p-4 !p-3 border-l-error"
+            style={{ width: "100%", height: "100%" }}
+            wrapperClassname="laptop:!p-6 tablet:!p-4 !p-3 !border-l-error"
           >
             <Text className="text-[16px] tablet:text-[18px] laptop:text-2xl">
               Multiple entry points for same or similar tasks.
             </Text>
           </Callout>
           <Callout
-            style={{ width: getBreakpointValue(["100%", "100%", 610, 828]) }}
-            wrapperClassname="laptop:!p-6 tablet:!p-4 !p-3 border-l-error"
+            style={{ width: "100%", height: "100%" }}
+            wrapperClassname="laptop:!p-6 tablet:!p-4 !p-3 !border-l-error"
           >
             <Text className="text-[16px] tablet:text-[18px] laptop:text-2xl">
               Inconsistent experiences across products.
             </Text>
           </Callout>
           <Callout
-            style={{ width: getBreakpointValue(["100%", "100%", 610, 828]) }}
-            wrapperClassname="laptop:!p-6 tablet:!p-4 !p-3 border-l-error"
+            style={{ width: "100%", height: "100%" }}
+            wrapperClassname="laptop:!p-6 tablet:!p-4 !p-3 !border-l-error"
           >
             <Text className="text-[16px] tablet:text-[18px] laptop:text-2xl">
               Steep learning curve left key features undiscovered and unused.

@@ -23,17 +23,19 @@ export const UserFlows = ({ id }: { id: string }) => {
           the entry points. Since fragmented navigation was the core problem we
           were solving, I spent most of this phase focused on two questions:
         </Text>
-        <Text variant="list" className="tablet:text-[16px] laptop:text-[18px]">
+        <Text
+          variant="list"
+          className="tablet:text-[16px] laptop:text-[18px] font-normal"
+        >
           Where in the existing platform does a scientist&apos;s plate workflow
           naturally begin?
         </Text>
-        <Text variant="list" className="tablet:text-[16px] laptop:text-[18px]">
+        <Text
+          variant="list"
+          className="tablet:text-[16px] laptop:text-[18px] font-normal"
+        >
           How do we get users from their current context into Plato without
           breaking their flow?
-        </Text>
-        <Text className="tablet:text-[16px] laptop:text-[18px]">
-          I sketched out several potential entry points, then worked with the
-          team to refine them into a single, intuitive flow.
         </Text>
       </Flex>
       <Image

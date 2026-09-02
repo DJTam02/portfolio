@@ -154,7 +154,7 @@ export default function Scispot() {
             Design Philosophy 💭
           </Text>
           <Text variant="h4" className="laptop:text-[40px]">
-            The <i className="font-instrument">central challenge</i> in
+            The <i className="font-instrument">central challenge </i>in
             designing Plato was introducing AI to users who have never used it
             before, and who didn&apos;t ask for it.
           </Text>

@@ -44,33 +44,37 @@ export const Impacts = ({ id }: { id: string }) => {
             style={{ width: "100%", height: "100%" }}
             wrapperClassname="gap-1 tablet:gap-2 !flex-col justify-center laptop:!py-6 tablet:!py-4 tablet:!px-5 !px-4 !py-3"
           >
-            <Text className="tablet:text-[16px] laptop:text-[18px] laptop:font-normal">
-              One user noted:
-            </Text>
-            <Text className="text-[18px] laptop:text-2xl font-bold laptop:font-normal">
-              &quot;I didn&apos;t expect how quickly I could rely on the
-              feature&quot;
-            </Text>
-            <Text className="tablet:text-[16px] laptop:text-[18px] laptop:font-normal">
-              This was surprising especially given that we were introducing AI
-              to a scientist who had never used it before.
-            </Text>
+            <Flex direction="col" className="gap-1 tablet:gap-2">
+              <Text className="tablet:text-[16px] laptop:text-[18px] laptop:font-normal">
+                One user noted:
+              </Text>
+              <Text className="text-[18px] laptop:text-2xl font-bold laptop:font-normal">
+                &quot;I didn&apos;t expect how quickly I could rely on the
+                feature&quot;
+              </Text>
+              <Text className="tablet:text-[16px] laptop:text-[18px] laptop:font-normal">
+                This was surprising especially given that we were introducing AI
+                to a scientist who had never used it before.
+              </Text>
+            </Flex>
           </Callout>
           <Callout
             style={{ width: "100%", height: "100%" }}
             wrapperClassname="gap-1 tablet:gap-2 !flex-col justify-center laptop:!py-6 tablet:!py-4 tablet:!px-5 !px-4 !py-3"
           >
-            <Text className="tablet:text-[16px] laptop:text-[18px] laptop:font-normal">
-              Another user said:
-            </Text>
-            <Text className="text-[18px] laptop:text-2xl font-bold laptop:font-normal">
-              &quot;Plato feels like doing the same workflows I was used to, but
-              with a little extra help to be more efficient.&quot;
-            </Text>
-            <Text className="tablet:text-[16px] laptop:text-[18px] laptop:font-normal">
-              This was surprising especially given that we were introducing AI
-              to a scientist who had never used it before.
-            </Text>
+            <Flex direction="col" className="gap-1 tablet:gap-2">
+              <Text className="tablet:text-[16px] laptop:text-[18px] laptop:font-normal">
+                Another user said:
+              </Text>
+              <Text className="text-[18px] laptop:text-2xl font-bold laptop:font-normal">
+                &quot;Plato feels like doing the same workflows I was used to,
+                but with a little extra help to be more efficient.&quot;
+              </Text>
+              <Text className="tablet:text-[16px] laptop:text-[18px] laptop:font-normal">
+                This was surprising especially given that we were introducing AI
+                to a scientist who had never used it before.
+              </Text>
+            </Flex>
           </Callout>
         </Flex>
         <Text className="tablet:text-[16px] laptop:text-[18px]">

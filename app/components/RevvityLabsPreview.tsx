@@ -16,7 +16,7 @@ export const RevvityLabsPreview = ({
       src="/images/revvity-labs-thumbnail.png"
       alt="Revvity Labs Thumbnail"
       path={ROUTES.revvityLabs}
-      wrapperClassName={`w-full h-auto ${wrapperClassName}`}
+      wrapperClassName={`w-full flex-1 h-auto ${wrapperClassName}`}
       {...props}
     >
       <Flex

@@ -44,37 +44,43 @@ export const SpeakingToUsers = ({ id }: { id: string }) => {
           style={{ width: "100%", height: "100%" }}
           wrapperClassname="gap-1 tablet:gap-2 !flex-col justify-center"
         >
-          <Text className="text-[18px] laptop:text-2xl font-bold laptop:font-normal">
-            Constant context switching
-          </Text>
-          <Text className="tablet:text-[16px] laptop:text-[18px]">
-            &quot;Having to jump between different parts of the platform to
-            complete the same task is really disruptive.&quot;
-          </Text>
+          <Flex direction="col" className="gap-1 tablet:gap-2">
+            <Text className="text-[18px] laptop:text-2xl font-bold laptop:font-normal">
+              Constant context switching
+            </Text>
+            <Text className="tablet:text-[16px] laptop:text-[18px]">
+              &quot;Having to jump between different parts of the platform to
+              complete the same task is really disruptive.&quot;
+            </Text>
+          </Flex>
         </Callout>
         <Callout
           style={{ width: "100%", height: "100%" }}
           wrapperClassname="gap-1 tablet:gap-2 !flex-col justify-center"
         >
-          <Text className="text-[18px] laptop:text-2xl font-bold laptop:font-normal">
-            Features go undiscovered
-          </Text>
-          <Text className="tablet:text-[16px] laptop:text-[18px]">
-            &quot;I didn&apos;t even know that existed. I&apos;ve been doing it
-            manually this whole time.&quot;
-          </Text>
+          <Flex direction="col" className="gap-1 tablet:gap-2">
+            <Text className="text-[18px] laptop:text-2xl font-bold laptop:font-normal">
+              Features go undiscovered
+            </Text>
+            <Text className="tablet:text-[16px] laptop:text-[18px]">
+              &quot;I didn&apos;t even know that existed. I&apos;ve been doing
+              it manually this whole time.&quot;
+            </Text>
+          </Flex>
         </Callout>
         <Callout
           style={{ width: "100%", height: "100%" }}
           wrapperClassname="gap-1 tablet:gap-2 !flex-col justify-center"
         >
-          <Text className="text-[18px] laptop:text-2xl font-bold laptop:font-normal">
-            AI feels foreign
-          </Text>
-          <Text className="tablet:text-[16px] laptop:text-[18px]">
-            &quot;I wouldn&apos;t have thought to use AI for this. I&apos;m not
-            sure I&apos;d trust it to get it right.&quot;
-          </Text>
+          <Flex direction="col" className="gap-1 tablet:gap-2">
+            <Text className="text-[18px] laptop:text-2xl font-bold laptop:font-normal">
+              AI feels foreign
+            </Text>
+            <Text className="tablet:text-[16px] laptop:text-[18px]">
+              &quot;I wouldn&apos;t have thought to use AI for this. I&apos;m
+              not sure I&apos;d trust it to get it right.&quot;
+            </Text>
+          </Flex>
         </Callout>
       </Flex>
     </Flex>
