@@ -1,0 +1,36 @@
+app/components/ProblemPoint.tsx
+  h_44ec2da86f6695 32-33
+app/components/RevvityLabsPreview.tsx
+  h_44ec2da86f6695 19
+app/scispot/components/DesignCritique.tsx
+  h_44ec2da86f6695 22-25,30-33
+app/scispot/components/DesignDecisions.tsx
+  h_44ec2da86f6695 31,45,65,67,69-70,78,84,108-119,131-141,165-174,191,230-238,250-261,285,308
+app/scispot/components/Impacts.tsx
+  h_44ec2da86f6695 47-59,65-77
+app/scispot/components/MarketResearch.tsx
+  h_44ec2da86f6695 49,51-60,64,66-76
+app/scispot/components/ProblemDefinition.tsx
+  h_44ec2da86f6695 31-32,39-40,47-48
+app/scispot/components/ProblemScoping.tsx
+  h_44ec2da86f6695 45-54,60-70,76-86
+app/scispot/components/Reflections.tsx
+  h_44ec2da86f6695 9,26-39,45-58,69-80,86-97,120-131,137-148,159-170,176-187,194-204
+app/scispot/components/SpeakingToUsers.tsx
+  h_44ec2da86f6695 47-55,61-69,75-83
+app/scispot/components/UserFlows.tsx
+  h_44ec2da86f6695 26-29,33-36
+app/scispot/page.tsx
+  h_44ec2da86f6695 157
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.0",
+  "base_commit_sha": "0ed519b76922c9a4370bc90a6b61beb7ae1f3efa",
+  "prompts": {},
+  "humans": {
+    "h_44ec2da86f6695": {
+      "author": "DJTam02 <jacobtam2002@gmail.com>"
+    }
+  }
+}
