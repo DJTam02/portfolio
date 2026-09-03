@@ -34,7 +34,7 @@ export const DesignDecisions = ({ id }: { id: string }) => {
               alt="Homepage"
               width={1480}
               height={958}
-              className="flex-1 h-auto"
+              className="w-full"
             />
             <Text className="tablet:text-[16px] laptop:text-[18px]">
               <b>Homepage:</b> Its primary role is to introduce the platform,
@@ -48,7 +48,7 @@ export const DesignDecisions = ({ id }: { id: string }) => {
               alt="Table"
               width={1480}
               height={958}
-              className="flex-1 h-auto"
+              className="w-full flex-1"
             />
             <Text className="tablet:text-[16px] laptop:text-[18px]">
               <b>Results analysis spreadsheets:</b> Plate workflows span
@@ -68,6 +68,7 @@ export const DesignDecisions = ({ id }: { id: string }) => {
               alt="Dashboard"
               width={1145}
               height={740}
+              className="w-full"
             />
             <Text className="tablet:text-[16px] laptop:text-[18px]">
               <b>Lab process tracking app:</b> This product is mostly project
@@ -81,7 +82,7 @@ export const DesignDecisions = ({ id }: { id: string }) => {
               alt="Export"
               width={1480}
               height={958}
-              className="flex-1"
+              className="w-full flex-1"
             />
             <Text className="tablet:text-[16px] laptop:text-[18px]">
               <b>Note-taking app:</b> Scientists already use it to plan

@@ -18,12 +18,15 @@ export const Impacts = ({ id }: { id: string }) => {
           and telling. Users didn&apos;t just tolerate Plato, they relied on it
           faster than we anticipated. The numbers speak for themselves.
         </Text>
-        <Flex direction="row" className="gap-3 tablet:gap-4 laptop:gap-6">
+        <Flex
+          direction="col"
+          className="tablet:flex-row gap-3 tablet:gap-4 laptop:gap-6"
+        >
           <Callout
             style={{ width: "100%", height: "100%" }}
             wrapperClassname="gap-1 tablet:gap-2 !flex-col justify-center laptop:!py-6 tablet:!py-4 tablet:!px-5 !px-4 !py-3"
           >
-            <Text className="tablet:text-[16px] laptop:text-[18px] laptop:font-normal">
+            <Text className="text-[18px] tablet:text-[16px] laptop:text-[18px] laptop:font-normal">
               <b>60% reduction</b> in data analysis time.
             </Text>
           </Callout>
@@ -31,7 +34,7 @@ export const Impacts = ({ id }: { id: string }) => {
             style={{ width: "100%", height: "100%" }}
             wrapperClassname="gap-1 tablet:gap-2 !flex-col justify-center laptop:!py-6 tablet:!py-4 tablet:!px-5 !px-4 !py-3"
           >
-            <Text className="tablet:text-[16px] laptop:text-[18px] laptop:font-normal">
+            <Text className="text-[18px] tablet:text-[16px] laptop:text-[18px] laptop:font-normal">
               <b>15-20 hrs</b> of weekly routine tasks automated per researcher.
             </Text>
           </Callout>
@@ -39,7 +42,10 @@ export const Impacts = ({ id }: { id: string }) => {
         <Text className="tablet:text-[16px] laptop:text-[18px]">
           The qualitative feedback was also just as revealing.
         </Text>
-        <Flex direction="row" className="gap-3 tablet:gap-4 laptop:gap-6">
+        <Flex
+          direction="col"
+          className="tablet:flex-row gap-3 tablet:gap-4 laptop:gap-6"
+        >
           <Callout
             style={{ width: "100%", height: "100%" }}
             wrapperClassname="gap-1 tablet:gap-2 !flex-col justify-center laptop:!py-6 tablet:!py-4 tablet:!px-5 !px-4 !py-3"

@@ -47,7 +47,10 @@ export const RevvityLabsPreview = ({
               Revvity | July 2025
             </Text>
           </Flex>
-          <Text variant="h4" className="flex-1 hidden laptop:block">
+          <Text
+            variant="h4"
+            className={`flex-1 hidden ${isHome ? "laptop:block" : ""}`}
+          >
             This case study outlines my efforts in a cross-functional hackathon
             for Revvity&apos;s first external-facing AI product, RevvityLabs. We
             delivered everything from user research, to datasets to train our

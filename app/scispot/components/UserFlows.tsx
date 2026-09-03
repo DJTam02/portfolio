@@ -25,14 +25,14 @@ export const UserFlows = ({ id }: { id: string }) => {
         </Text>
         <Text
           variant="list"
-          className="tablet:text-[16px] laptop:text-[18px] font-normal"
+          className="text-[14px] tablet:text-[16px] laptop:text-[18px] font-normal"
         >
           Where in the existing platform does a scientist&apos;s plate workflow
           naturally begin?
         </Text>
         <Text
           variant="list"
-          className="tablet:text-[16px] laptop:text-[18px] font-normal"
+          className="text-[14px] tablet:text-[16px] laptop:text-[18px] font-normal"
         >
           How do we get users from their current context into Plato without
           breaking their flow?
