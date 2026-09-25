@@ -1,0 +1,14 @@
+package-lock.json
+  h_44ec2da86f6695 4596
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "90111d9b0e84ef8fa60ce5712b43b0696340ae27",
+  "prompts": {},
+  "humans": {
+    "h_44ec2da86f6695": {
+      "author": "DJTam02 <jacobtam2002@gmail.com>"
+    }
+  }
+}
