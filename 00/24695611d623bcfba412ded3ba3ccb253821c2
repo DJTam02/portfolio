@@ -1,0 +1,61 @@
+app/components/SciSpotPreview.tsx
+  h_44ec2da86f6695 5,7-8,18-32,68
+app/ui-components/index.ts
+  h_44ec2da86f6695 7,21
+app/hooks/useGetBreakpointValue.ts
+  h_44ec2da86f6695 7,10
+  h_44ec2da86f6695 6,8-9
+app/components/PasswordModal.tsx
+  h_44ec2da86f6695 1-56,60-73,84-88
+  s_1e18019d043f3b::t_03cc5a2894c70d 57-59,74-83
+app/components/portfolio/photoHover.tsx
+  h_44ec2da86f6695 4,8-9,12,34-36,42-44,46
+  h_44ec2da86f6695 6-7,10,37,45
+app/ui-components/modal/index.tsx
+  s_1e18019d043f3b::t_e67431ac166435 1-2
+  h_44ec2da86f6695 14-16,49-54,68,75,77
+  s_1e18019d043f3b::t_d0004cd55cc2d5 59,62,70
+  h_44ec2da86f6695 17-18
+app/ui-components/input/index.tsx
+  h_44ec2da86f6695 1-13
+app/contexts/PasswordProtectionContext.tsx
+  h_44ec2da86f6695 1-17
+app/contexts/PasswordProtectionProvider.tsx
+  h_44ec2da86f6695 1-41
+app/layout.tsx
+  h_44ec2da86f6695 9,52
+  h_44ec2da86f6695 51,53
+app/ui-components/liquidGlass/index.tsx
+  h_44ec2da86f6695 103
+app/globals.css
+  s_1e18019d043f3b::t_9a9b084cc09c02 56-59
+app/constants.ts
+  h_44ec2da86f6695 66-69
+.npmrc
+  h_44ec2da86f6695 1-3
+package-lock.json
+  h_44ec2da86f6695 11,4498-4503
+package.json
+  h_44ec2da86f6695 12
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "0024695611d623bcfba412ded3ba3ccb253821c2",
+  "prompts": {},
+  "humans": {
+    "h_44ec2da86f6695": {
+      "author": "DJTam02 <jacobtam2002@gmail.com>"
+    }
+  },
+  "sessions": {
+    "s_1e18019d043f3b": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "2da85f33-75dd-49f4-988e-066a6cdc3e8f",
+        "model": "default"
+      },
+      "human_author": "DJTam02 <jacobtam2002@gmail.com>"
+    }
+  }
+}
