@@ -4,6 +4,7 @@ import { RevvityChatPreview } from "./components/RevvityChatPreview";
 import { PlootoPreview } from "./components/PlootoPreview";
 import { REVIVITY_LABS_NAV_ITEMS } from "./revvity-labs/constants";
 import { SCISPOT_NAV_ITEMS } from "./scispot/constants";
+import { REVIVITY_AI_NAV_ITEMS } from "./revvity-ai/constants";
 
 export const LINKS = {
   misc: {
@@ -50,9 +51,9 @@ export const SCI_SPOT = {
   PreviewComponent: SciSpotPreview,
 };
 
-export const REVIVITY_CHAT = {
-  navItems: [],
-  id: "revvity-chat",
+export const REVVITY_AI = {
+  navItems: REVIVITY_AI_NAV_ITEMS,
+  id: "revvity-ai",
   PreviewComponent: RevvityChatPreview,
 };
 
@@ -62,8 +63,9 @@ export const PLOOTO = {
   PreviewComponent: PlootoPreview,
 };
 
-export const PROJECTS = [REVVITY_LABS, SCI_SPOT, REVIVITY_CHAT, PLOOTO];
+export const PROJECTS = [REVVITY_LABS, SCI_SPOT, REVVITY_AI, PLOOTO];
 
-export const ENCRYPTED_PASSWORD = "cb426f0d2f76c48e653e8a8ef5eedc012b84a1e735529e5ec9b54bbd7d2f043a";
+export const ENCRYPTED_PASSWORD =
+  "cb426f0d2f76c48e653e8a8ef5eedc012b84a1e735529e5ec9b54bbd7d2f043a";
 
 export const PASSWORD_PROTECTED_CASE_STUDIES = new Set([ROUTES.scispot]);
