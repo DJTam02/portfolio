@@ -1,10 +1,15 @@
 "use client";
 
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useGetBreakpointValue } from "@/app/hooks";
-import { BREAKPOINTS, ROUTES } from "@/app/constants";
+import {
+  BREAKPOINTS,
+  PASSWORD_PROTECTED_CASE_STUDIES,
+  ROUTES,
+} from "@/app/constants";
 import { useRouter } from "next/navigation";
+import { PasswordProtectionContext } from "@/app/contexts/PasswordProtectionContext";
 
 export interface PhotoHoverProps extends React.HTMLAttributes<HTMLDivElement> {
   src: string;
@@ -26,12 +31,19 @@ export const PhotoHover = ({
   const { width } = useGetBreakpointValue();
   const router = useRouter();
 
+  const { isPasswordValid, setRequestedRoute } = useContext(
+    PasswordProtectionContext,
+  );
+
   const [showOverlay, setShowOverlay] = useState(false);
 
   const handleWrapperClick = () => {
-    console.log(width);
     if (width > BREAKPOINTS.laptop) {
-      router.push(path);
+      if (PASSWORD_PROTECTED_CASE_STUDIES.has(path) && !isPasswordValid) {
+        setRequestedRoute(path);
+      } else {
+        router.push(path);
+      }
       return;
     }
     setShowOverlay((prev) => !prev);

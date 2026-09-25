@@ -6,6 +6,7 @@ import {
   Archivo_Black,
 } from "next/font/google";
 import "./globals.css";
+import { PasswordProtectionProvider } from "./contexts/PasswordProtectionProvider";
 
 const alegreyaSans = Alegreya_Sans({
   subsets: ["latin"],
@@ -47,7 +48,9 @@ export default function RootLayout({
       lang="en"
       className={`${alegreyaSans.variable} ${instrumentSerif.variable} ${rubikGlitch.variable} ${archivoBlack.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <PasswordProtectionProvider>{children}</PasswordProtectionProvider>
+      </body>
     </html>
   );
 }

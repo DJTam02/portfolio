@@ -4,7 +4,7 @@ export { Icon } from "./icon";
 export { Button } from "./button";
 export { Flex } from "./flex";
 export { Footer } from "./footer";
-export { Modal } from "./modal";
+export { Modal, ModalWrapper } from "./modal";
 export { Navigation } from "./navigation";
 export { LiquidGlass } from "./liquidGlass";
 export { Chip } from "./chip";
@@ -18,3 +18,4 @@ export {
   BLOB_SIZE,
 } from "./shapedGlass";
 export { Callout } from "./callout";
+export { Input } from "./input";

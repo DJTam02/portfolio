@@ -3,7 +3,11 @@
 import { useState, useEffect, useCallback } from "react";
 import { BREAKPOINTS } from "../constants";
 
-type BreakpointValue = string | number | undefined;
+type BreakpointValue =
+  | string
+  | number
+  | undefined
+  | { [key: string]: string | number | undefined };
 
 export const useGetBreakpointValue = () => {
   // Keep initial render consistent between SSR and the client.

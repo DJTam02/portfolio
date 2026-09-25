@@ -2,8 +2,10 @@
 
 import { PhotoHover, PhotoHoverProps } from "./portfolio/photoHover";
 import { Flex, Text, Chip, Button } from "@/app/ui-components";
-import { ROUTES } from "@/app/constants";
+import { PASSWORD_PROTECTED_CASE_STUDIES, ROUTES } from "@/app/constants";
 import { usePathname, useRouter } from "next/navigation";
+import { PasswordProtectionContext } from "../contexts/PasswordProtectionContext";
+import { useCallback, useContext } from "react";
 
 export const SciSpotPreview = ({
   wrapperClassName,
@@ -12,6 +14,21 @@ export const SciSpotPreview = ({
   const router = useRouter();
 
   const isHome = usePathname() === ROUTES.portfolio;
+
+  const { isPasswordValid, setRequestedRoute } = useContext(
+    PasswordProtectionContext,
+  );
+
+  const redirectToCaseStudy = useCallback(() => {
+    if (
+      PASSWORD_PROTECTED_CASE_STUDIES.has(ROUTES.scispot) &&
+      !isPasswordValid
+    ) {
+      setRequestedRoute(ROUTES.scispot);
+    } else {
+      router.push(ROUTES.scispot);
+    }
+  }, [isPasswordValid, setRequestedRoute, router]);
 
   return (
     <PhotoHover
@@ -48,7 +65,7 @@ export const SciSpotPreview = ({
           </Text>
         </Flex>
         <div className="laptop:hidden">
-          <Button hasIcon onClick={() => router.push(ROUTES.scispot)}>
+          <Button hasIcon onClick={redirectToCaseStudy}>
             View Case Study
           </Button>
         </div>

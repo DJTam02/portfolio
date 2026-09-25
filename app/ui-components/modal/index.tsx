@@ -1,16 +1,19 @@
+"use client";
+
 import React from "react";
 import { Flex, FlexProps } from "../flex";
 import { Ellipse } from "./ellipse";
 import { LiquidGlass } from "../liquidGlass";
 import { useGetBreakpointValue } from "@/app/hooks";
 
-interface ModalWrapperProps extends FlexProps {
-  onClose: () => void;
-}
-
 interface ModalProps extends React.ComponentProps<typeof LiquidGlass> {
   className?: string;
   children: React.ReactNode;
+}
+
+interface ModalWrapperProps extends FlexProps {
+  onClose: () => void;
+  modalProps?: Omit<ModalProps, "children">;
 }
 
 export const Modal = ({ children, className, ...rest }: ModalProps) => {
@@ -43,26 +46,35 @@ export const Modal = ({ children, className, ...rest }: ModalProps) => {
 export const ModalWrapper = ({
   children,
   onClose,
+  className,
+  modalProps: {
+    className: modalClassName,
+    style: modalStyle,
+    ...modalProps
+  } = {},
   ...rest
 }: ModalWrapperProps) => (
   <React.Fragment>
     <Flex
+      data-modal
       justifyContent="center"
       alignItems="center"
-      className="h-screen w-full absolute top-0 left-0 bg-black opacity-80 cursor-pointer z-30"
+      className={`h-screen w-full fixed top-0 left-0 bg-black opacity-80 cursor-pointer z-30 ${className}`}
       onClick={onClose}
       {...rest}
     />
     <Modal
       cursor="default"
-      className="w-150"
+      className={`w-150 ${modalClassName}`}
       style={{
-        position: "absolute",
+        position: "fixed",
         top: "50%",
         left: "50%",
         transform: "translate(-50%, -50%)",
         zIndex: 30,
+        ...modalStyle,
       }}
+      {...modalProps}
     >
       {children}
     </Modal>

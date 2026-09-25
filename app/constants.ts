@@ -63,3 +63,7 @@ export const PLOOTO = {
 };
 
 export const PROJECTS = [REVVITY_LABS, SCI_SPOT, REVIVITY_CHAT, PLOOTO];
+
+export const ENCRYPTED_PASSWORD = "cb426f0d2f76c48e653e8a8ef5eedc012b84a1e735529e5ec9b54bbd7d2f043a";
+
+export const PASSWORD_PROTECTED_CASE_STUDIES = new Set([ROUTES.scispot]);

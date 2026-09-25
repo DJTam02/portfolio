@@ -100,7 +100,7 @@ export const LiquidGlass = ({
         direction="row"
         className={wrapperClassname}
         style={{
-          width: childWidth || undefined,
+          width: style.width || childWidth || undefined,
           minHeight: childHeight || undefined,
         }}
         ref={wrapperRef}
