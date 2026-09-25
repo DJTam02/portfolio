@@ -1,0 +1,38 @@
+app/revvity-ai/components/DesignDecisions.tsx
+  h_44ec2da86f6695 1-370
+app/constants.ts
+  h_44ec2da86f6695 7,54-56,66
+  h_44ec2da86f6695 68-69
+app/revvity-ai/components/FinalDecisions.tsx
+  h_44ec2da86f6695 1-43
+app/revvity-ai/components/JobsToBeDone.tsx
+  h_44ec2da86f6695 1-67
+app/revvity-ai/components/ProblemDefinition.tsx
+  h_44ec2da86f6695 1-79
+app/revvity-ai/components/SpeakingToUsers.tsx
+  h_44ec2da86f6695 1-72
+app/revvity-ai/constants.ts
+  h_44ec2da86f6695 1-50
+app/revvity-ai/components/Reflections.tsx
+  h_44ec2da86f6695 1-169
+app/revvity-ai/components/MarketResearch.tsx
+  h_44ec2da86f6695 1-110
+app/revvity-ai/page.tsx
+  h_44ec2da86f6695 1-187
+app/revvity-ai/components/MidFidelity.tsx
+  h_44ec2da86f6695 1-41
+app/revvity-ai/components/DesignCritique.tsx
+  h_44ec2da86f6695 1-52,54-66,68-70,72-82,84-88,90-91,93-104,106-119,121-122,124-162,164-194
+  h_44ec2da86f6695 53,67,71,83,89,92,105,120,123,163
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "ecbcbb10b6b27f3b9616faac869cc1c13b264797",
+  "prompts": {},
+  "humans": {
+    "h_44ec2da86f6695": {
+      "author": "DJTam02 <jacobtam2002@gmail.com>"
+    }
+  }
+}
